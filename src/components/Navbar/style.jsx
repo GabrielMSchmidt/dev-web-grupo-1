@@ -33,7 +33,8 @@ export const TopBar = styled.div`
   }
 `;
 
-export const LogoText = styled.h1`
+export const LogoText = styled.a`
+  text-decoration: none;
   font-size: 22px;
   font-weight: 700;
   color: #000000;
@@ -201,24 +202,47 @@ export const CartIcon = styled.div`
 `;
 
 export const ContainerCategorias = styled.div`
-  display: none;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 40px;
+  background-color: #F7F9FB;
+  box-shadow: #F7F9FB 3px 4px 14px;
+  font-size: 19px;
+  margin-top: 5px;
+  padding: 10px 5%;
+  font-family: "Poppins", sans-serif;
 
-  @media (min-width: 768px) {
-    display: flex;
-    gap: 16px;
-    margin-top: 10px;
-    width: 100%;
-    justify-content: center;
+  overflow-x: auto;
+  scrollbar-width: thin; 
+  scrollbar-color: #ccc transparent; 
 
-    span {
-      cursor: pointer;
-      font-weight: 500;
-      color: #333;
-      transition: 0.2s;
+  &::-webkit-scrollbar {
+    height: 6px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+`;
 
-      &:hover {
-        color: #0077ff;
-      }
-    }
+export const Categorias = styled.a`
+  flex-shrink: 0;
+  cursor: pointer;
+  font-weight: 500;
+  color: #333;
+  text-decoration: none;
+  transition: 0.2s;
+
+  &:hover {
+    color: #0077ff;
+  }
+
+  &:last-child {
+    margin-right: 50px; 
   }
 `;

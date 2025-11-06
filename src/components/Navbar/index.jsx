@@ -11,6 +11,7 @@ import {
   IconsWrapper,
   CartIcon,
   ContainerCategorias,
+  Categorias,
 } from "./style";
 
 import { FaUser, FaSearch, FaShoppingCart, FaBars } from "react-icons/fa";
@@ -22,7 +23,7 @@ export function Navbar({ propsPlaceHolder }) {
     <>
         <Container>
         <TopBar>
-            <LogoText>Serra Tek</LogoText>
+            <LogoText href="/Home">Serra Tech</LogoText>
             <MenuButton onClick={() => setMenuOpen(!menuOpen)}>
             <FaBars />
             </MenuButton>
@@ -54,9 +55,13 @@ export function Navbar({ propsPlaceHolder }) {
         
         </Container>
         <ContainerCategorias>
-            <span>cat1</span>
-            <span>cat2</span>
-            <span>cat3</span>
+          <Categorias href="/Home">Todos os produtos</Categorias>
+          <Categorias href="/categoria/cat2">Notebooks</Categorias>
+          <Categorias href="/categoria/cat3">Computadores</Categorias>
+          <Categorias href="/categoria/cat4">Monitores</Categorias>
+          <Categorias href="/categoria/cat5">Mouses</Categorias>
+          <Categorias href="/categoria/cat6">Teclados</Categorias>
+          <Categorias href="/categoria/cat7">FAQ</Categorias>
         </ContainerCategorias>
     </>
   );
