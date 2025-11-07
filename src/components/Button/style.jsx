@@ -10,9 +10,10 @@ export const Botao = styled.button`
   font-size: ${(props) => props.fontSize };
   transition: all 0.2s ease-in-out;
   white-space: nowrap;
-
+  margin: ${(props) => props.margin};
   background-color: ${(props) => props.background || "#ffffff"};
   color: ${(props) => props.color || "#000000"};
+  width: ${(props) => props};
 
   &:hover {
     transform: scale(1.05);

@@ -51,6 +51,12 @@ export const Home = () => {
                 </ContainerTiRight>
             </ContainerTitulos>
             <ContainerCards>
+                    <Card
+                        title="Pc Bomba Slk n roda nem LoL"
+                        precoOri="R$ 01.00"
+                        precoDes="R$ 9999.99"
+                    />
+                    <Card/>
                     <Card/>
             </ContainerCards>
         </ContainerHome>

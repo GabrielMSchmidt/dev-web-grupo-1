@@ -14,6 +14,8 @@ export const Button = (props) => {
         borderHover={props.borderHover}
         padding={props.padding}
         fontSize={props.fontSize}
+        margin={props.margin}
+        width={props.width}
       >
         {props.title || "Entrar Aqui"}
       </Botao>
