@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import { api } from '../../../utils/Api';
-import { Navbar } from '../../../components/Navbar';
+import { api } from '../../utils/Api';
+import { Navbar } from '../../components/Navbar';
 
-export const ListProdutos = () => {
+export const Produtos = () => {
   const [produtos, setProdutos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
