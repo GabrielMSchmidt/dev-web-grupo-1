@@ -42,6 +42,9 @@ export const Home = () => {
                         border="1px solid gray" 
                         padding="12% 20%"
                         fontSize="20px"
+                        backgroundHover="black"
+                        colorHover="white"
+                        borderHover="none"
                     />
                 </ContainerTiRight>
             </ContainerTitulos>
