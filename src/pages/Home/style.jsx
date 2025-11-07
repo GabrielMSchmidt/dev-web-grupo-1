@@ -30,7 +30,8 @@ export const ContainerTiRight = styled.div`
 
 export const ContainerCards = styled.div`
     display: flex;
-    background-color: #00ff40;
+    flex-direction: column;
+    gap:2vh;
     min-width: 80%;
     min-height: 60%;
 `;
