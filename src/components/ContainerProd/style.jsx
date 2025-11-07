@@ -34,3 +34,13 @@ export const ContainerButtons = styled.div `
         gap: 20px;
     }
 `;
+
+export const BotaoOfertas = styled.button `
+    background-color: white;
+`;
+
+export const ContainerBanners = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 10% 5%;
+`;
