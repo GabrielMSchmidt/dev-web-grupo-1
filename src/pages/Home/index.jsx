@@ -9,10 +9,12 @@ import {
     ContainerTiLeft,
     Titulo,
     SubTitulo,
-    ContainerTiRight
+    ContainerTiRight,
+    ContainerCards
 } from "./style.jsx";
 import { Carrossel } from "../../components/Carrossel/index.jsx";
 import { Button } from "../../components/Button/index.jsx";
+import { Card } from "../../components/Card/index.jsx";
 
 const banners = [
   { image: Banner1, link: "/Produtos" },
@@ -48,6 +50,9 @@ export const Home = () => {
                     />
                 </ContainerTiRight>
             </ContainerTitulos>
+            <ContainerCards>
+                    <Card/>
+            </ContainerCards>
         </ContainerHome>
     )
 }

@@ -27,3 +27,10 @@ export const ContainerTiRight = styled.div`
     margin-top: 12%;
     width: 38%;
 `;
+
+export const ContainerCards = styled.div`
+    display: flex;
+    background-color: #00ff40;
+    min-width: 80%;
+    min-height: 60%;
+`;
