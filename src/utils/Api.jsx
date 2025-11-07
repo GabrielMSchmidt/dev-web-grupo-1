@@ -2,7 +2,6 @@ import axios from 'axios';
 
 const API_BASE_URL = 'http://localhost:8080';
 
-// Configuração da instância do Axios
 const apiClient = axios.create({
   baseURL: API_BASE_URL,
   headers: {
@@ -11,7 +10,6 @@ const apiClient = axios.create({
   timeout: 10000, // 10 segundos
 });
 
-// Interceptor de resposta para tratamento de erros global
 apiClient.interceptors.response.use(
   (response) => response,
   (error) => {
@@ -30,11 +28,6 @@ apiClient.interceptors.response.use(
 );
 
 export const api = {
-  /**
-   * Função auxiliar para fazer requisições GET
-   * @param {string} endpoint - O endpoint da API (ex: '/produtos')
-   * @returns {Promise} - Retorna os dados da resposta
-   */
   get: async (endpoint) => {
     try {
       const response = await apiClient.get(endpoint);
@@ -45,15 +38,17 @@ export const api = {
     }
   },
 
-  /**
-   * Função auxiliar para fazer requisições POST
-   * @param {string} endpoint - O endpoint da API
-   * @param {Object} body - Os dados a serem enviados
-   * @returns {Promise} - Retorna os dados da resposta
-   */
   post: async (endpoint, body) => {
     try {
-      const response = await apiClient.post(endpoint, body);
+      const config = {};
+      
+      if (body instanceof FormData) {
+        config.headers = {
+          'Content-Type': 'multipart/form-data',
+        };
+      }
+      
+      const response = await apiClient.post(endpoint, body, config);
       return response.data;
     } catch (error) {
       console.error('Erro ao fazer requisição POST:', error);
@@ -61,12 +56,6 @@ export const api = {
     }
   },
 
-  /**
-   * Função auxiliar para fazer requisições PUT
-   * @param {string} endpoint - O endpoint da API
-   * @param {Object} body - Os dados a serem atualizados
-   * @returns {Promise} - Retorna os dados da resposta
-   */
   put: async (endpoint, body) => {
     try {
       const response = await apiClient.put(endpoint, body);
@@ -77,11 +66,6 @@ export const api = {
     }
   },
 
-  /**
-   * Função auxiliar para fazer requisições DELETE
-   * @param {string} endpoint - O endpoint da API
-   * @returns {Promise} - Retorna os dados da resposta
-   */
   delete: async (endpoint) => {
     try {
       const response = await apiClient.delete(endpoint);
@@ -92,12 +76,6 @@ export const api = {
     }
   },
 
-  /**
-   * Função auxiliar para fazer requisições PATCH
-   * @param {string} endpoint - O endpoint da API
-   * @param {Object} body - Os dados a serem atualizados parcialmente
-   * @returns {Promise} - Retorna os dados da resposta
-   */
   patch: async (endpoint, body) => {
     try {
       const response = await apiClient.patch(endpoint, body);
