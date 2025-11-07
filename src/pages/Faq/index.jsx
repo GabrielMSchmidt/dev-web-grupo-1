@@ -1,6 +1,12 @@
 import { Navbar } from "../../components/Navbar"
-import './style.css'
 import React, { useState } from 'react';
+
+import {
+    FaqBox,
+    FaqList,
+    FaqItem,
+    FaqQuestion
+} from "./style.jsx";
 
 
 const mockFaqs = [
@@ -30,19 +36,19 @@ export const Faq =() =>{
     <>
         <Navbar/>
 
-        <div className="faqBox">
+        <FaqBox>
         <h1> Dúvidas Frequentes</h1>
         <span>Encontre respostas para as perguntas mais comuns sobre nosso produto e serviços</span>
-            <div className="faqList">
+            <FaqList>
                 {faqs.map((item) =>(
-                <div key={item.id} className="faqItem">
-                    <h3 className="faqQuestion">{item.pergunta}</h3>
-                    <p className="faqAnswer">{item.resposta}</p>
+                <div key={item.id}>
+                    <faqQuestion>{item.pergunta}</faqQuestion>
+                    <faqAnswer>{item.resposta}</faqAnswer>
                     <hr/>
                 </div>
              ))}
-            </div>
-        </div>
+            </FaqList>
+        </FaqBox>
     </> 
     )
 }
