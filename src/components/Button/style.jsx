@@ -13,7 +13,7 @@ export const Botao = styled.button`
   margin: ${(props) => props.margin};
   background-color: ${(props) => props.background || "#ffffff"};
   color: ${(props) => props.color || "#000000"};
-  width: ${(props) => props};
+  height: ${(props) => props.height};
 
   &:hover {
     transform: scale(1.05);

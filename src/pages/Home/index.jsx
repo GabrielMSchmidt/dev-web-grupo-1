@@ -43,7 +43,7 @@ export const Home = () => {
                     <Button 
                         title="Ver Todos"
                         border="1px solid gray" 
-                        padding="12% 20%"
+                        padding="0 20%"
                         fontSize="20px"
                         backgroundHover="black"
                         colorHover="white"
@@ -51,6 +51,7 @@ export const Home = () => {
                         paddingTablet="0 10%"
                         fontSizeTablet="15px"
                         heightTablet="50px"
+                        height="50px"
                     />
                 </ContainerTiRight>
             </ContainerTitulos>
