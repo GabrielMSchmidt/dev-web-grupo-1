@@ -5,11 +5,12 @@ import {
   DestaqueSpan,
   SubTitulo,
   ContainerButtons,
+  ContainerComponentProd
 } from "./style";
 
 export const ContainerProd = (props) => {
   return (
-    <>
+    <ContainerComponentProd>
         <Titulo>
             {props.title || "Titulo Antes"}{" "}
             <DestaqueSpan>{props.destaque || "Destaque"}</DestaqueSpan>{" "}
@@ -34,8 +35,11 @@ export const ContainerProd = (props) => {
               backgroundHover="#3794ff"
               colorHover="white"
               borderHover="none"
+              heightNotebook={props.heightNotebook}
+              paddingNotebook={props.paddingNotebook}
+              fontSizeNotebook={props.fontSizeNotebook}
             />
         </ContainerButtons>
-    </>
+    </ContainerComponentProd>
   );
 };
