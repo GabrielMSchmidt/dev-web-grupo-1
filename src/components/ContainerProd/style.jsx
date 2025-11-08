@@ -1,5 +1,10 @@
 import styled from "styled-components";
 
+export const ContainerComponentProd =styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 export const Titulo = styled.h1`
   font-size: 40px;
   font-family: "Poppins", sans-serif;
@@ -9,6 +14,11 @@ export const Titulo = styled.h1`
   max-width: 80%;
   @media (min-width: 768px) {
     max-width: 100%;
+  }
+  @media (min-width: 1024px) {
+    font-size: 70px;
+    margin: 0 5%;
+    margin-top: 20%;
   }
 `;
 
@@ -25,6 +35,10 @@ export const SubTitulo = styled.p`
   @media (min-width: 768px) {
     max-width: 100%;
   }
+  @media (min-width: 1024px) {
+    margin: 2% 7%;
+    font-size: 20px;
+  }
 `;
 
 export const ContainerButtons = styled.div `
@@ -39,14 +53,8 @@ export const ContainerButtons = styled.div `
   @media (min-width: 768px) {
     flex-direction: row;
   }
-`;
-
-export const BotaoOfertas = styled.button `
-    background-color: white;
-`;
-
-export const ContainerBanners = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin: 10% 5%;
+  @media (min-width: 1024px) {
+    margin-left: 5%;
+    flex-direction: column;
+  }
 `;

@@ -11,6 +11,12 @@ export const CarouselContainer = styled.div`
     height: 768px;
     max-width: 100vw;
   }
+  @media (min-width: 1024px) {
+    height: 600px;
+  }
+  @media (min-width: 1400px) {
+    height: 800px;
+  }
 `;
 
 export const CarouselSlide = styled.div`
@@ -25,4 +31,10 @@ export const CarouselImage = styled.img`
   height: 100%;
   object-fit: cover;
   flex-shrink: 0;
+  @media (min-width: 1024px) {
+    width: 100%;
+    height: 100%;
+    object-fit: scale-down;
+    border-radius: 20px;
+  } 
 `;

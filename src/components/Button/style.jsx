@@ -26,8 +26,12 @@ export const Botao = styled.button`
     height: ${(props) => props.heightTablet || ""};
     padding: ${(props) => props.paddingTablet || props.padding || "8% 15%"};
     font-size: ${(props) => props.fontSizeTablet || props.fontSize || "14px"};
-
   }
-
+  @media (min-width: 1024px) {
+    height: ${(props) => props.heightNotebook|| ""};
+    padding: ${(props) => props.paddingNotebook || props.padding || "8% 15%"};
+    font-size: ${(props) => props.fontSizeNotebook || props.fontSize || "14px"};
+    width: ${(props) => props.widthNotebook || ""};
+  }
 `;
 

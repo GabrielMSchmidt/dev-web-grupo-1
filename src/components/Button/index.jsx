@@ -20,6 +20,10 @@ export const Button = (props) => {
         fontSizeTablet={props.fontSizeTablet}
         paddingTablet={props.paddingTablet}
         height={props.height}
+        heightNotebook={props.heightNotebook}
+        paddingNotebook={props.paddingNotebook}
+        fontSizeNotebook={props.fontSizeNotebook}
+        widthNotebook={props.widthNotebook}
       >
         {props.title || "Entrar Aqui"}
       </Botao>

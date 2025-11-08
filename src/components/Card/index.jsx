@@ -5,7 +5,8 @@ import {
   TextoCard,
   ContainerRating,
   PrecoDesconto,
-  Preco
+  Preco,
+  ContainerButton 
 } from "./style";
 import Rating from "@mui/material/Rating";
 import ImagemTeste from "../../Assets/ProdutoTeste.jpg";
@@ -44,6 +45,9 @@ export const Card = (props) => {
             "@media (min-width: 768px)": {
               fontSize: "40px", 
             },
+            "@media (min-width: 1024px)": {
+              fontSize: "25px"
+            },
           }}
         />
         <Box sx={{ ml: 1, fontSize: "14px", color: "#333" }}>
@@ -53,17 +57,20 @@ export const Card = (props) => {
 
       <PrecoDesconto>{props.precoDes || "R$ 5519.99"}</PrecoDesconto>
       <Preco>{props.precoOri || "R$ 4899.99"}</Preco>
-      <Button
-        title="Adicionar" 
-        background="#0D70E0" 
-        color="white" 
-        backgroundHover="white"
-        colorHover="#0D70E0"
-        padding="3% 20%"
-        margin="0 5%"
-        width="90%"
-        fontSize="18px"
-      />
+      <ContainerButton>
+        <Button
+          title="Adicionar" 
+          background="#0D70E0" 
+          color="white" 
+          backgroundHover="white"
+          colorHover="#0D70E0"
+          padding="3% 30%"
+          margin="0 5%"
+          width="90%"
+          fontSize="18px"
+          widthNotebook="90%"
+        />
+      </ContainerButton>
     </ContainerCard>
   );
 };
