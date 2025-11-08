@@ -1,13 +1,16 @@
 import styled from "styled-components";
 
 export const ContainerHome = styled.div`
-    height: 200vh;
+    height: 220vh;
 `;
 
 export const ContainerTitulos = styled.div`
     font-family: "Poppins", sans-serif;
     display: flex;
     justify-content: space-between;
+    @media (min-width: 768px) {
+        margin-top: 20%;
+    }
 `;
 
 export const ContainerTiLeft = styled.div`
@@ -26,6 +29,11 @@ export const SubTitulo = styled.h2`
 export const ContainerTiRight = styled.div`
     margin-top: 12%;
     width: 38%;
+    display: flex;
+    @media (min-width: 768px) {
+        margin-top: 5%;
+        justify-content: flex-end;
+    }
 `;
 
 export const ContainerCards = styled.div`

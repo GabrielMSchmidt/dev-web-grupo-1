@@ -7,6 +7,10 @@ export const CarouselContainer = styled.div`
   overflow: hidden;
   position: relative;
   border-radius: 12px;
+  @media (min-width: 768px) {
+    height: 768px;
+    max-width: 100vw;
+  }
 `;
 
 export const CarouselSlide = styled.div`

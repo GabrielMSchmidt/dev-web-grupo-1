@@ -21,5 +21,13 @@ export const Botao = styled.button`
     color: ${(props) => props.colorHover };
     border: ${(props) => props.borderHover}
   }
+
+  @media (min-width: 768px) {
+    height: ${(props) => props.heightTablet || ""};
+    padding: ${(props) => props.paddingTablet || props.padding || "8% 15%"};
+    font-size: ${(props) => props.fontSizeTablet || props.fontSize || "14px"};
+
+  }
+
 `;
 

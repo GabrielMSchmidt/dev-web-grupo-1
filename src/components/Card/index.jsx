@@ -39,6 +39,12 @@ export const Card = (props) => {
           value={value}
           precision={0.5}
           onChange={(event, newValue) => setValue(newValue)}
+          sx={{
+            fontSize: "24px", 
+            "@media (min-width: 768px)": {
+              fontSize: "40px", 
+            },
+          }}
         />
         <Box sx={{ ml: 1, fontSize: "14px", color: "#333" }}>
           {labels[value] || "(0.0)"}

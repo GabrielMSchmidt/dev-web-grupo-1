@@ -15,6 +15,7 @@ import {
 import { Carrossel } from "../../components/Carrossel/index.jsx";
 import { Button } from "../../components/Button/index.jsx";
 import { Card } from "../../components/Card/index.jsx";
+import { Footer } from "../../components/Footer/Index.jsx";
 
 const banners = [
   { image: Banner1, link: "/Produtos" },
@@ -47,6 +48,9 @@ export const Home = () => {
                         backgroundHover="black"
                         colorHover="white"
                         borderHover="none"
+                        paddingTablet="0 10%"
+                        fontSizeTablet="15px"
+                        heightTablet="50px"
                     />
                 </ContainerTiRight>
             </ContainerTitulos>
@@ -59,6 +63,7 @@ export const Home = () => {
                     <Card/>
                     <Card/>
             </ContainerCards>
+            <Footer />
         </ContainerHome>
     )
 }
