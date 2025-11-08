@@ -6,17 +6,27 @@ export const ContainerCard = styled.div`
   height: 75vh;
   border: 2px solid #0000004b;
   border-radius: 15px;
+  @media (min-width: 768px) {
+    height: 85vh;
+  }
 `;
 
 export const ImagemCard = styled.img`
   width: 95%;
   margin: 2% 2%;
+  @media (min-width: 768px) {
+    width: 70%;
+    margin-left: 18%;
+  }
 `;
 
 export const TextoCard = styled.h3`
   font-size: 18px;
   font-family: "Poppins", sans-serif;
   margin-left: 5%;
+  @media (min-width: 768px) {
+    font-size: 30px;
+  }
 `;
 
 export const ContainerRating = styled.div`

@@ -13,7 +13,7 @@ export const Botao = styled.button`
   margin: ${(props) => props.margin};
   background-color: ${(props) => props.background || "#ffffff"};
   color: ${(props) => props.color || "#000000"};
-  width: ${(props) => props};
+  height: ${(props) => props.height};
 
   &:hover {
     transform: scale(1.05);
@@ -21,5 +21,13 @@ export const Botao = styled.button`
     color: ${(props) => props.colorHover };
     border: ${(props) => props.borderHover}
   }
+
+  @media (min-width: 768px) {
+    height: ${(props) => props.heightTablet || ""};
+    padding: ${(props) => props.paddingTablet || props.padding || "8% 15%"};
+    font-size: ${(props) => props.fontSizeTablet || props.fontSize || "14px"};
+
+  }
+
 `;
 

@@ -8,7 +8,7 @@ export const Titulo = styled.h1`
   margin-top: 10%;
   max-width: 80%;
   @media (min-width: 768px) {
-    
+    max-width: 100%;
   }
 `;
 
@@ -22,17 +22,23 @@ export const SubTitulo = styled.p`
   font-size: 17px;
   max-width: 80%;
   font-family: "Poppins", sans-serif;
+  @media (min-width: 768px) {
+    max-width: 100%;
+  }
 `;
 
 export const ContainerButtons = styled.div `
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 
-    &{
-        width: 50%;
-        gap: 20px;
-    }
+  &{
+      width: 50%;
+      gap: 20px;
+  }
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
 `;
 
 export const BotaoOfertas = styled.button `
