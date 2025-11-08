@@ -3,21 +3,33 @@ import styled from "styled-components";
 export const ContainerCard = styled.div`
   background-color: #ffffff;
   width: 90vw;
-  height: 75vh;
+  height: 85vh;
   border: 2px solid #0000004b;
   border-radius: 15px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* garante que nada empurre o resto */
+  justify-content: space-between;
   box-sizing: border-box;
 
+    @media (min-width: 540px) {
+    height: 105vh;
+  }
+  
   @media (min-width: 768px) {
-    height: 85vh;
+    height: 110vh;
+  }
+
+  @media (min-width: 768px) and (min-height: 1100px) {
+    height: 80vh;
   }
 
   @media (min-width: 1024px) {
     width: 20vw;
     height: 70vh;
+  }
+
+  @media (min-width: 1024px) and (min-height: 1300px) {
+    height: 50%;
   }
 
   @media (min-width: 1500px) {
