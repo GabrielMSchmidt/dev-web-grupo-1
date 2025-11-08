@@ -2,11 +2,14 @@ import { Navbar } from "../../components/Navbar"
 import React, { useState } from 'react';
 
 import {
+
     FaqBox,
     FaqList,
     FaqItem,
     FaqQuestion
 } from "./style.jsx";
+
+import { ContactOptions } from './../../components/ContactOptions/index';
 
 
 const mockFaqs = [
@@ -49,6 +52,8 @@ export const Faq =() =>{
              ))}
             </FaqList>
         </FaqBox>
+        
+        <ContactOptions/>
     </> 
     )
 }
