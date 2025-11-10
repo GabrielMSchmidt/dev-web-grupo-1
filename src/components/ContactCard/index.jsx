@@ -1,11 +1,20 @@
+import React from 'react';
 
+import { StyledContactCard, 
+    IconContainer, 
+    CardTitle, 
+    CardContent } from './style.jsx'; 
 
 export const ContactCard = ({ icon, title, content }) => {
     return (
-        <div className="contact-card">
-            <div className="contact-icon">{icon}</div> 
-            <h4 className="contact-title">{title}</h4>
-            <p className="contact-content">{content}</p>
-        </div>
+
+        <StyledContactCard>
+            
+            <IconContainer>{icon}</IconContainer> 
+            
+            <CardTitle>{title}</CardTitle>
+            
+            <CardContent>{content}</CardContent>
+        </StyledContactCard>
     );
 }
