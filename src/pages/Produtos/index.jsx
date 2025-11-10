@@ -1,8 +1,8 @@
-<<<<<<< HEAD
 import { useState, useEffect } from "react";
 import { Navbar } from "../../components/Navbar";
 import { useCart } from "../../context/CartContext";
 import { api } from "../../utils/Api";
+import ImagemPadrao from '../../Assets/ProdutoTeste.jpg';
 import { 
   ProdutosContainer, 
   Titulo, 
@@ -14,12 +14,6 @@ import {
   ImagemProduto,
   SuccessMessage
 } from "./style";
-=======
-import { useState, useEffect } from 'react';
-import { api } from '../../utils/Api';
-import { Navbar } from '../../components/Navbar';
-import ImagemPadrao from '../../Assets/ProdutoTeste.jpg';
->>>>>>> efedf84ccfb80430e7e1871b4e9d740f3b465df7
 
 export const Produtos = () => {
   const { addToCart } = useCart();
@@ -36,23 +30,27 @@ export const Produtos = () => {
   };
 
   useEffect(() => {
+    let urlsToRevoke = [];
+
     const fetchProdutos = async () => {
       try {
-<<<<<<< HEAD
-        const response = await api.get("/produtos");
-        setProdutos(response.data);
-=======
         setLoading(true);
-        const data = await api.get('/produtos');
+        const response = await api.get('/produtos');
+        const data = response.data ?? response;
         setProdutos(data);
         setError(null);
-        
+
         const imagePromises = data.map(async (produto) => {
+          if (produto.imagem) {
+            return { id: produto.id, url: produto.imagem };
+          }
           try {
-            const response = await fetch(`http://localhost:8080/produtos/${produto.id}/foto`);
-            if (response.ok) {
-              const blob = await response.blob();
-              return { id: produto.id, url: URL.createObjectURL(blob) };
+            const res = await fetch(`http://localhost:8080/produtos/${produto.id}/foto`);
+            if (res.ok) {
+              const blob = await res.blob();
+              const url = URL.createObjectURL(blob);
+              urlsToRevoke.push(url);
+              return { id: produto.id, url };
             }
           } catch (err) {
             console.error(`Erro ao carregar imagem do produto ${produto.id}:`, err);
@@ -66,9 +64,9 @@ export const Produtos = () => {
           imagensMap[img.id] = img.url;
         });
         setImagensCarregadas(imagensMap);
->>>>>>> efedf84ccfb80430e7e1871b4e9d740f3b465df7
       } catch (err) {
-        console.warn("⚠️ API offline — usando mock local.");
+        console.warn("⚠️ API offline — usando mock local.", err);
+        setError("Falha ao carregar produtos");
         setProdutos([
           {
             id: 1,
@@ -121,7 +119,7 @@ export const Produtos = () => {
     fetchProdutos();
 
     return () => {
-      Object.values(imagensCarregadas).forEach(url => {
+      urlsToRevoke.forEach(url => {
         if (url && url.startsWith('blob:')) {
           URL.revokeObjectURL(url);
         }
@@ -144,42 +142,22 @@ export const Produtos = () => {
         ) : produtos.length === 0 ? (
           <EmptyMessage>Nenhum produto encontrado 😅</EmptyMessage>
         ) : (
-<<<<<<< HEAD
           <ListaProdutos>
             {produtos.map((produto) => (
               <ProdutoCard key={produto.id}>
-                <ImagemProduto src={produto.imagem} alt={produto.nome} />
+                <ImagemProduto
+                  src={imagensCarregadas[produto.id] || produto.imagem || ImagemPadrao}
+                  alt={produto.nome}
+                />
                 <h3>{produto.nome}</h3>
                 <p>{produto.descricao}</p>
-                <span>💰 R$ {produto.preco.toFixed(2)}</span>
+                <span>💰 R$ {produto.preco ? produto.preco.toFixed(2) : '0.00'}</span>
+                {produto.categoria && <p><strong>Categoria:</strong> {produto.categoria.nome}</p>}
+                <p><strong>Estoque:</strong> {produto.quantidadeEstoque || 0}</p>
                 <ButtonAdd onClick={() => handleAddToCart(produto)}>
                   Adicionar ao Carrinho 🛒
                 </ButtonAdd>
               </ProdutoCard>
-=======
-          <ul style={{ listStyle: 'none', padding: 0 }}>
-            {produtos.map((produto) => (
-              <li key={produto.id} style={{ marginBottom: '30px', borderBottom: '1px solid #ddd', paddingBottom: '20px' }}>
-                {imagensCarregadas[produto.id] && (
-                  <img 
-                    src={imagensCarregadas[produto.id] || ImagemPadrao} 
-                    alt={produto.nome}
-                    style={{ 
-                      width: '200px', 
-                      height: '200px', 
-                      objectFit: 'cover', 
-                      borderRadius: '8px',
-                      marginBottom: '10px'
-                    }}
-                  />
-                )}
-                <h3>{produto.nome}</h3>
-                <p>{produto.descricao}</p>
-                <p><strong>Preço:</strong> R$ {produto.preco ? produto.preco.toFixed(2) : '0.00'}</p>
-                {produto.categoria && <p><strong>Categoria:</strong> {produto.categoria.nome}</p>}
-                <p><strong>Estoque:</strong> {produto.quantidadeEstoque || 0}</p>
-              </li>
->>>>>>> efedf84ccfb80430e7e1871b4e9d740f3b465df7
             ))}
           </ListaProdutos>
         )}
