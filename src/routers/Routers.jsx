@@ -5,6 +5,10 @@ import { Produtos } from '../pages/Produtos/index.jsx';
 import { CreateProduto } from '../pages/CreateProduto/index.jsx';
 import { EditProduto } from '../pages/EditProduto/index.jsx';
 import { Faq } from '../pages/Faq/index.jsx'
+import { Carrinho } from "../pages/Carrinho";
+import { Checkout } from "../pages/Checkout";
+import { CartProvider } from "../context/CartContext";
+
 
 const PageError = () => {
   return (
@@ -17,15 +21,20 @@ const PageError = () => {
 export const Routers = () => {
 
   return (
-    <Routes>
-        <Route path='/home' element={<Home />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/produtos' element={<Produtos />} />
-        <Route path='/produtos/novo' element={<CreateProduto />} />
-        <Route path='/produtos/:id/editar' element={<EditProduto />} />
-        <Route path='/faq' element={<Faq />} />
+    <CartProvider>
+      <Routes>
+          <Route path="/carrinho" element={<Carrinho />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path='/home' element={<Home />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/produtos' element={<Produtos />} />
+          <Route path='/produtos/novo' element={<CreateProduto />} />
+          <Route path='/produtos/:id/editar' element={<EditProduto />} />
+          <Route path='/faq' element={<Faq />} />
 
-        <Route path='*' element={<PageError />} />
-    </Routes>
+          <Route path='*' element={<PageError />} />
+          <Route path="/carrinho" element={<Carrinho />} />
+      </Routes>
+    </CartProvider>
   )
 }
