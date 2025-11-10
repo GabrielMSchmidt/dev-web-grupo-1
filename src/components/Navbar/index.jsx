@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom"; // ✅ import adicionado
 import {
   Container,
   TopBar,
@@ -18,51 +19,54 @@ import { FaUser, FaSearch, FaShoppingCart, FaBars } from "react-icons/fa";
 
 export function Navbar({ propsPlaceHolder }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate(); // ✅ hook pra navegar
 
   return (
     <>
-        <Container>
+      <Container>
         <TopBar>
-            <LogoText href="/Home">Serra Tech</LogoText>
-            <MenuButton onClick={() => setMenuOpen(!menuOpen)}>
+          <LogoText href="/Home">Serra Tech</LogoText>
+          <MenuButton onClick={() => setMenuOpen(!menuOpen)}>
             <FaBars />
-            </MenuButton>
+          </MenuButton>
         </TopBar>
 
         <HiddenMenu open={menuOpen}>
-            <button>
+          <button onClick={() => navigate("/carrinho")}>
+            {/* ✅ agora o botão do menu mobile também leva pro carrinho */}
             <FaShoppingCart className="icon" /> Carrinho (0)
-            </button>
-            <button>
+          </button>
+          <button>
             <FaUser className="icon" /> Minha Conta
-            </button>
+          </button>
         </HiddenMenu>
 
         <SearchContainer>
-            <SearchIcon>
+          <SearchIcon>
             <FaSearch />
-            </SearchIcon>
-            <SearchBar placeholder={propsPlaceHolder || "Buscar produtos..."} />
+          </SearchIcon>
+          <SearchBar placeholder={propsPlaceHolder || "Buscar produtos..."} />
         </SearchContainer>
 
         <IconsWrapper>
-            <FaUser className="icon" />
-            <CartIcon>
+          <FaUser className="icon" />
+          <CartIcon onClick={() => navigate("/carrinho")}>
+            
             <FaShoppingCart className="icon" />
             <span className="cart-count">0</span>
-            </CartIcon>
+          </CartIcon>
         </IconsWrapper>
-        
-        </Container>
-        <ContainerCategorias>
-          <Categorias href="/Home">Todos os produtos</Categorias>
-          <Categorias href="/categoria/cat2">Notebooks</Categorias>
-          <Categorias href="/categoria/cat3">Computadores</Categorias>
-          <Categorias href="/categoria/cat4">Monitores</Categorias>
-          <Categorias href="/categoria/cat5">Mouses</Categorias>
-          <Categorias href="/categoria/cat6">Teclados</Categorias>
-          <Categorias href="/faq">FAQ</Categorias>
-        </ContainerCategorias>
+      </Container>
+
+      <ContainerCategorias>
+        <Categorias href="/Home">Todos os produtos</Categorias>
+        <Categorias href="/categoria/cat2">Notebooks</Categorias>
+        <Categorias href="/categoria/cat3">Computadores</Categorias>
+        <Categorias href="/categoria/cat4">Monitores</Categorias>
+        <Categorias href="/categoria/cat5">Mouses</Categorias>
+        <Categorias href="/categoria/cat6">Teclados</Categorias>
+        <Categorias href="/faq">FAQ</Categorias>
+      </ContainerCategorias>
     </>
   );
 }
