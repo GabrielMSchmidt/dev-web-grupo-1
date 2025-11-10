@@ -30,6 +30,7 @@ export const ModalContent = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
     animation: ${slideDown} 0.3s ease-out;
+    font-family: "Poppins", sans-serif;
 `;
 
 export const ModalHeader = styled.div`

@@ -1,6 +1,9 @@
 
 import React, { useState, useEffect } from 'react';
 
+import { FaPencilAlt } from "react-icons/fa";
+import { FaTrashAlt } from "react-icons/fa";
+
 import { ProdutoModal } from '../../components/ProdutoModal/index';
 import { Container, Header, Title, ProductListSection, NewProductButton, Table, TableHead, TableRow, TableCell, ActionButton, ImagePreview, Notification } from './Style'; // Estilos importados
 
@@ -123,7 +126,6 @@ export const GerenciarProdutos = () => {
                     <Table>
                         <TableHead>
                             <TableRow isHeader>
-                                <TableCell>Imagem</TableCell>
                                 <TableCell>Nome</TableCell>
                                 <TableCell>Preço</TableCell>
                                 <TableCell>Estoque</TableCell>
@@ -133,13 +135,12 @@ export const GerenciarProdutos = () => {
                         <tbody>
                             {produtos.map((produto) => (
                                 <TableRow key={produto.id}>
-                                    <TableCell><ImagePreview src={produto.imagem} alt={produto.nome} /></TableCell>
                                     <TableCell>{produto.nome}</TableCell>
                                     <TableCell>{`R$ ${produto.preco.toFixed(2).replace('.', ',')}`}</TableCell>
                                     <TableCell>{`${produto.estoque} un.`}</TableCell>
                                     <TableCell actions>
-                                        <ActionButton onClick={() => handleEditClick(produto)} edit>✏️</ActionButton>
-                                        <ActionButton onClick={() => handleRemoveProduct(produto.id)} remove>🗑️</ActionButton>
+                                        <ActionButton onClick={() => handleEditClick(produto)} edit><FaPencilAlt /></ActionButton>
+                                        <ActionButton onClick={() => handleRemoveProduct(produto.id)} remove><FaTrashAlt /></ActionButton>
                                     </TableCell>
                                 </TableRow>
                             ))}
