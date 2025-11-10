@@ -6,7 +6,7 @@ import { Container, Header, Title, ProductListSection, NewProductButton, Table, 
 
 import { api } from '../../utils/Api'; 
 import { Navbar } from '../../components/Navbar';
-
+import { Footer } from '../../components/Footer/Index';
 
 const initialProductsMock = [
     { id: '1', imagem: '/assets/notebook.jpg', nome: 'Notebook Gamer RGB Pro 15.6"', preco: 4599.99, estoque: 15, urlImagem: '/assets/notebook.jpg' },
@@ -49,7 +49,7 @@ const useProductManagement = () => {
 }
 
 export const GerenciarProdutos = () => {
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const { produtos, loading, error, handleDelete, setProdutos } = useProductManagement();
     const [modalOpen, setModalOpen] = useState(false);
     const [selectedProduto, setSelectedProduto] = useState(null); 
@@ -163,7 +163,7 @@ export const GerenciarProdutos = () => {
                 </Notification>
             )}
 
-            <Footer />
+        <Footer />
         </Container>
     );
 };

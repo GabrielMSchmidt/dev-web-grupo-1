@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalFooter, InputGroup, Label, Input, TextArea, CloseButton, SubmitButton, CancelButton, ErrorMessage, Notification } from './Style'; // Estilos importados
+import { ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalFooter, InputGroup, Label, Input, TextArea, CloseButton, SubmitButton, CancelButton, ErrorMessage} from './Style'; // Estilos importados
 
 
 
