@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useState, useEffect } from "react";
 import { Navbar } from "../../components/Navbar";
 import { useCart } from "../../context/CartContext";
@@ -13,6 +14,12 @@ import {
   ImagemProduto,
   SuccessMessage
 } from "./style";
+=======
+import { useState, useEffect } from 'react';
+import { api } from '../../utils/Api';
+import { Navbar } from '../../components/Navbar';
+import ImagemPadrao from '../../Assets/ProdutoTeste.jpg';
+>>>>>>> efedf84ccfb80430e7e1871b4e9d740f3b465df7
 
 export const Produtos = () => {
   const { addToCart } = useCart();
@@ -20,6 +27,7 @@ export const Produtos = () => {
   const [loading, setLoading] = useState(true);
   const [success, setSuccess] = useState("");
   const [error, setError] = useState(null);
+  const [imagensCarregadas, setImagensCarregadas] = useState({});
 
   const handleAddToCart = (produto) => {
     addToCart(produto);
@@ -30,8 +38,35 @@ export const Produtos = () => {
   useEffect(() => {
     const fetchProdutos = async () => {
       try {
+<<<<<<< HEAD
         const response = await api.get("/produtos");
         setProdutos(response.data);
+=======
+        setLoading(true);
+        const data = await api.get('/produtos');
+        setProdutos(data);
+        setError(null);
+        
+        const imagePromises = data.map(async (produto) => {
+          try {
+            const response = await fetch(`http://localhost:8080/produtos/${produto.id}/foto`);
+            if (response.ok) {
+              const blob = await response.blob();
+              return { id: produto.id, url: URL.createObjectURL(blob) };
+            }
+          } catch (err) {
+            console.error(`Erro ao carregar imagem do produto ${produto.id}:`, err);
+          }
+          return { id: produto.id, url: null };
+        });
+
+        const imagens = await Promise.all(imagePromises);
+        const imagensMap = {};
+        imagens.forEach(img => {
+          imagensMap[img.id] = img.url;
+        });
+        setImagensCarregadas(imagensMap);
+>>>>>>> efedf84ccfb80430e7e1871b4e9d740f3b465df7
       } catch (err) {
         console.warn("⚠️ API offline — usando mock local.");
         setProdutos([
@@ -84,6 +119,14 @@ export const Produtos = () => {
     };
 
     fetchProdutos();
+
+    return () => {
+      Object.values(imagensCarregadas).forEach(url => {
+        if (url && url.startsWith('blob:')) {
+          URL.revokeObjectURL(url);
+        }
+      });
+    };
   }, []);
 
   return (
@@ -101,6 +144,7 @@ export const Produtos = () => {
         ) : produtos.length === 0 ? (
           <EmptyMessage>Nenhum produto encontrado 😅</EmptyMessage>
         ) : (
+<<<<<<< HEAD
           <ListaProdutos>
             {produtos.map((produto) => (
               <ProdutoCard key={produto.id}>
@@ -112,6 +156,30 @@ export const Produtos = () => {
                   Adicionar ao Carrinho 🛒
                 </ButtonAdd>
               </ProdutoCard>
+=======
+          <ul style={{ listStyle: 'none', padding: 0 }}>
+            {produtos.map((produto) => (
+              <li key={produto.id} style={{ marginBottom: '30px', borderBottom: '1px solid #ddd', paddingBottom: '20px' }}>
+                {imagensCarregadas[produto.id] && (
+                  <img 
+                    src={imagensCarregadas[produto.id] || ImagemPadrao} 
+                    alt={produto.nome}
+                    style={{ 
+                      width: '200px', 
+                      height: '200px', 
+                      objectFit: 'cover', 
+                      borderRadius: '8px',
+                      marginBottom: '10px'
+                    }}
+                  />
+                )}
+                <h3>{produto.nome}</h3>
+                <p>{produto.descricao}</p>
+                <p><strong>Preço:</strong> R$ {produto.preco ? produto.preco.toFixed(2) : '0.00'}</p>
+                {produto.categoria && <p><strong>Categoria:</strong> {produto.categoria.nome}</p>}
+                <p><strong>Estoque:</strong> {produto.quantidadeEstoque || 0}</p>
+              </li>
+>>>>>>> efedf84ccfb80430e7e1871b4e9d740f3b465df7
             ))}
           </ListaProdutos>
         )}

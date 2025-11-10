@@ -47,10 +47,9 @@ export const CardList = () => {
       {produtos.map((produto) => (
         <Card
           key={produto.id}
+          produtoId={produto.id}
           title={produto.nome}
-          // precoOri={`R$ ${produto.preco?.toFixed(2)}`}
-          precoDes={`R$ ${produto.preco?.toFixed(2)}`}
-          // image={produto.url}
+          precoOri={`R$ ${produto.preco?.toFixed(2)}`}
         />
       ))}
     </ContainerCards>

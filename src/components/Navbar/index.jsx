@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom"; // ✅ import adicionado
+import { useNavigate } from "react-router-dom";
 import {
   Container,
   TopBar,
@@ -19,7 +19,7 @@ import { FaUser, FaSearch, FaShoppingCart, FaBars } from "react-icons/fa";
 
 export function Navbar({ propsPlaceHolder }) {
   const [menuOpen, setMenuOpen] = useState(false);
-  const navigate = useNavigate(); // ✅ hook pra navegar
+  const navigate = useNavigate();
 
   return (
     <>
@@ -33,7 +33,6 @@ export function Navbar({ propsPlaceHolder }) {
 
         <HiddenMenu open={menuOpen}>
           <button onClick={() => navigate("/carrinho")}>
-            {/* ✅ agora o botão do menu mobile também leva pro carrinho */}
             <FaShoppingCart className="icon" /> Carrinho (0)
           </button>
           <button>
@@ -51,7 +50,6 @@ export function Navbar({ propsPlaceHolder }) {
         <IconsWrapper>
           <FaUser className="icon" />
           <CartIcon onClick={() => navigate("/carrinho")}>
-            
             <FaShoppingCart className="icon" />
             <span className="cart-count">0</span>
           </CartIcon>
