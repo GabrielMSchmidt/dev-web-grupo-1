@@ -16,10 +16,11 @@ import {
 } from "./style";
 
 import { FaUser, FaSearch, FaShoppingCart, FaBars } from "react-icons/fa";
-
+import { useCart } from "../../context/CartContext";
 export function Navbar({ propsPlaceHolder }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const { cartItems } = useCart();
 
   return (
     <>
@@ -33,7 +34,7 @@ export function Navbar({ propsPlaceHolder }) {
 
         <HiddenMenu open={menuOpen}>
           <button onClick={() => navigate("/carrinho")}>
-            <FaShoppingCart className="icon" /> Carrinho (0)
+            <FaShoppingCart className="icon" /> Carrinho ({cartItems.length})
           </button>
           <button>
             <FaUser className="icon" /> Minha Conta
@@ -51,7 +52,7 @@ export function Navbar({ propsPlaceHolder }) {
           <FaUser className="icon" />
           <CartIcon onClick={() => navigate("/carrinho")}>
             <FaShoppingCart className="icon" />
-            <span className="cart-count">0</span>
+            <span className="cart-count">{cartItems.length}</span>
           </CartIcon>
         </IconsWrapper>
       </Container>

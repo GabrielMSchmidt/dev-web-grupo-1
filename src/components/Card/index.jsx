@@ -12,6 +12,8 @@ import Rating from "@mui/material/Rating";
 import ImagemTeste from "../../Assets/ProdutoTeste.jpg";
 import Box from "@mui/material/Box";
 import { Button } from "../Button";
+import { useCart } from "../../context/CartContext"; 
+
 
 const labels = {
   0.5: "(0.5)",
@@ -27,6 +29,7 @@ const labels = {
 };
 
 export const Card = (props) => {
+  const { addToCart } = useCart();
   const [value, setValue] = useState(2.5);
   const [imageSrc, setImageSrc] = useState(ImagemTeste);
 
@@ -89,6 +92,11 @@ export const Card = (props) => {
       <Preco>{props.precoOri || "R$ 4899.99"}</Preco>
       <ContainerButton>
         <Button
+          onClick={() => addToCart({
+            id: props.produtoId,
+            nome: props.title,
+            preco: parseFloat(props.precoOri?.replace("R$", "").replace(",", ".") || 0),
+          })}
           title="Adicionar" 
           background="#0D70E0" 
           color="white" 

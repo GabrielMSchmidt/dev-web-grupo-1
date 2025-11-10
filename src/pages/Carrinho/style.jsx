@@ -1,13 +1,18 @@
 import styled from "styled-components";
 
-export const ContainerCarrinho = styled.main`
+export const Fundo = styled.div`
+  min-height: 100vh;
+  background-color: #F2F3F4;
+`;
+
+export const ContainerCarrinho = styled.div`
   min-height: 80vh;
-  background: linear-gradient(135deg, #f9fafb, #eef2ff);
+  background-color: #FFFFFF;
   padding: 40px 20px;
   max-width: 1000px;
   margin: 0 auto;
   border-radius: 16px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  border: 1px solid #E1E7EF;
   font-family: "Poppins", sans-serif;
 `;
 
@@ -137,8 +142,23 @@ export const CheckoutButton = styled.button`
 
 export const EmptyMessage = styled.div`
   text-align: center;
-  color: #4b5563;
-  font-size: 1.1rem;
+  color: #42464D;
+  font-weight: 700;
+  font-size: 1.5rem;
   margin-top: 60px;
   line-height: 1.6;
+
+  span {
+  font-size: 1rem;
+    font-weight: 400;
+  }
+
+  a{
+    color: blue;
+    text-decoration: none;
+  }
+
+  a:hover{
+    cursor: pointer;
+  }
 `;
