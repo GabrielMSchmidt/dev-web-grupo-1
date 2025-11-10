@@ -10,11 +10,16 @@ import {
     Titulo,
     SubTitulo,
     ContainerTiRight,
-    ContainerCards
+    ContainerCards,
+    ConatainerToProduct,
+    ContainerToLeft,
+    ContainerToRight
 } from "./style.jsx";
 import { Carrossel } from "../../components/Carrossel/index.jsx";
 import { Button } from "../../components/Button/index.jsx";
-import { Card } from "../../components/Card/index.jsx";
+
+import { Footer } from "../../components/Footer/Index.jsx";
+import { CardList } from "../../components/CardList/index.jsx";
 
 const banners = [
   { image: Banner1, link: "/Produtos" },
@@ -25,13 +30,19 @@ export const Home = () => {
     return (
         <ContainerHome>
             <Navbar />
-            <ContainerProd 
-                title="Os Melhores " 
-                title2="Para Você" 
-                destaque="Produtos" 
-                subtitle="Encontre notebooks, smartphones, periféricos e componentes com os melhores preços e condições."
-            />
-            <Carrossel banners={banners} interval={10000}/>
+            <ConatainerToProduct>
+                <ContainerToLeft>
+                    <ContainerProd 
+                        title="Os Melhores " 
+                        title2="Para Você" 
+                        destaque="Produtos" 
+                        subtitle="Encontre notebooks, smartphones, periféricos e componentes com os melhores preços e condições."
+                    />
+                </ContainerToLeft>
+                <ContainerToRight>
+                    <Carrossel banners={banners} interval={10000}/>
+                </ContainerToRight>
+            </ConatainerToProduct>
 
             <ContainerTitulos>
                 <ContainerTiLeft>
@@ -42,23 +53,22 @@ export const Home = () => {
                     <Button 
                         title="Ver Todos"
                         border="1px solid gray" 
-                        padding="12% 20%"
+                        padding="0 20%"
                         fontSize="20px"
                         backgroundHover="black"
                         colorHover="white"
                         borderHover="none"
+                        paddingTablet="0 10%"
+                        fontSizeTablet="15px"
+                        heightTablet="50px"
+                        height="50px"
                     />
                 </ContainerTiRight>
             </ContainerTitulos>
             <ContainerCards>
-                    <Card
-                        title="Pc Bomba Slk n roda nem LoL"
-                        precoOri="R$ 01.00"
-                        precoDes="R$ 9999.99"
-                    />
-                    <Card/>
-                    <Card/>
+                    <CardList/>
             </ContainerCards>
+            <Footer />
         </ContainerHome>
     )
 }

@@ -13,13 +13,25 @@ export const Botao = styled.button`
   margin: ${(props) => props.margin};
   background-color: ${(props) => props.background || "#ffffff"};
   color: ${(props) => props.color || "#000000"};
-  width: ${(props) => props};
+  height: ${(props) => props.height};
 
   &:hover {
     transform: scale(1.05);
     background-color: ${(props) => props.backgroundHover };
     color: ${(props) => props.colorHover };
     border: ${(props) => props.borderHover}
+  }
+
+  @media (min-width: 768px) {
+    height: ${(props) => props.heightTablet || ""};
+    padding: ${(props) => props.paddingTablet || props.padding || "8% 15%"};
+    font-size: ${(props) => props.fontSizeTablet || props.fontSize || "14px"};
+  }
+  @media (min-width: 1024px) {
+    height: ${(props) => props.heightNotebook|| ""};
+    padding: ${(props) => props.paddingNotebook || props.padding || "8% 15%"};
+    font-size: ${(props) => props.fontSizeNotebook || props.fontSize || "14px"};
+    width: ${(props) => props.widthNotebook || ""};
   }
 `;
 
