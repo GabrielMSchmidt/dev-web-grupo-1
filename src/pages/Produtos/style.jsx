@@ -6,7 +6,7 @@ export const ProdutosContainer = styled.div`
 `;
 
 export const Titulo = styled.h1`
-  color: #fff;
+  color: #006effff;
   margin-bottom: 1.5rem;
 `;
 
@@ -37,7 +37,7 @@ export const ImagemProduto = styled.img`
 `;
 
 export const ButtonAdd = styled.button`
-  background: #10b981;
+  background: #0004ffff;
   border: none;
   color: white;
   padding: 10px 20px;
@@ -47,7 +47,7 @@ export const ButtonAdd = styled.button`
   transition: 0.3s;
 
   &:hover {
-    background: #059669;
+    background: #0059ffff;
   }
 `;
 

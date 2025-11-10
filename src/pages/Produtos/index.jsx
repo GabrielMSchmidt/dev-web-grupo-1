@@ -40,28 +40,28 @@ export const Produtos = () => {
             nome: "Notebook Gamer ASUS TUF",
             descricao: "Ryzen 7, RTX 4060, 16GB RAM, SSD 1TB — desempenho extremo para jogos.",
             preco: 7899.90,
-            imagem: "https://m.media-amazon.com/images/I/71tKZXsQz3L._AC_SL1500_.jpg"
+            imagem: "https://images.kabum.com.br/produtos/fotos/sync_mirakl/473710/xlarge/Notebook-Gamer-Asus-Tuf-Gaming-F15-Intel-Core-i7-RAM-8GB-Nvidia-Geforce-RTX-3050-SSD-512GB-Linux-Keepos-Cinza_1762172020.jpg"
           },
           {
             id: 2,
             nome: "Monitor Curvo Samsung Odyssey G5",
             descricao: "Monitor gamer 32'' QHD 165Hz 1ms, tela curva imersiva.",
             preco: 1999.00,
-            imagem: "https://m.media-amazon.com/images/I/71RyH93-PEL._AC_SL1500_.jpg"
+            imagem: "https://img.terabyteshop.com.br/produto/g/monitor-gamer-samsung-odyssey-g5-34-pol-va-curvo-ultrawide-wqhd-1ms-165hz-hdr10-freesync-premium-hdmidp-lc34g55twwlmzd_212434.jpg"
           },
           {
             id: 3,
             nome: "Headset HyperX Cloud Alpha",
             descricao: "Som imersivo e conforto premium para longas sessões.",
             preco: 699.99,
-            imagem: "https://m.media-amazon.com/images/I/61CqYq+xwNL._AC_SL1000_.jpg"
+            imagem: "https://m.media-amazon.com/images/I/61e8vriJUtL._AC_UF894,1000_QL80_.jpg"
           },
           {
             id: 4,
             nome: "Teclado Mecânico Redragon Kumara RGB",
             descricao: "Switch Blue, construção em aço, iluminação RGB personalizável.",
             preco: 299.90,
-            imagem: "https://m.media-amazon.com/images/I/71qO+2ZrBCL._AC_SL1500_.jpg"
+            imagem: "https://m.media-amazon.com/images/I/51i08RGoXZL._AC_UF894,1000_QL80_.jpg"
           },
           {
             id: 5,
@@ -75,7 +75,7 @@ export const Produtos = () => {
             nome: "Cadeira Gamer ThunderX3 TGC12",
             descricao: "Design ergonômico, couro sintético premium, ajuste total.",
             preco: 1299.00,
-            imagem: "https://m.media-amazon.com/images/I/61w8H0qFPEL._AC_SL1500_.jpg"
+            imagem: "https://m.media-amazon.com/images/I/71VqjPlOJAL._AC_UF894,1000_QL80_.jpg"
           }
         ]);
       } finally {
@@ -90,7 +90,7 @@ export const Produtos = () => {
     <>
       <Navbar />
       <ProdutosContainer>
-        <Titulo>🛍️ Produtos de Tecnologia</Titulo>
+        <Titulo>🛍️ Todos os produtos</Titulo>
 
         {success && <SuccessMessage>{success}</SuccessMessage>}
 
