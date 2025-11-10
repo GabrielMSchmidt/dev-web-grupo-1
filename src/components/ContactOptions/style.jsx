@@ -8,6 +8,7 @@ export const ContactSection = styled.div`
     margin: 50px auto; 
     padding: 20px;
     text-align: center;
+    font-family: "Poppins", sans-serif;
 
 `;
 

@@ -9,6 +9,7 @@ export const FaqBox = styled.div `
     flex-direction: column;
     align-items: center;
     text-align: center;
+    font-family: "Poppins", sans-serif;
 
 `;
 
