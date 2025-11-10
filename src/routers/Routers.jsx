@@ -8,6 +8,7 @@ import { Faq } from '../pages/Faq/index.jsx'
 import { Carrinho } from "../pages/Carrinho";
 import { Checkout } from "../pages/Checkout";
 import { CartProvider } from "../context/CartContext";
+import { GerenciarProdutos } from '../pages/GerenciarProduto/index.jsx';
 
 
 const PageError = () => {
@@ -30,7 +31,8 @@ export const Routers = () => {
           <Route path='/produtos' element={<Produtos />} />
           <Route path='/produtos/novo' element={<CreateProduto />} />
           <Route path='/produtos/:id/editar' element={<EditProduto />} />
-          <Route path='/faq' element={<Faq />} />
+          <Route path='/produtos/gerenciar' element={<GerenciarProdutos />} />
+          <Route path='/faq' element={<Faq />} /> 
 
           <Route path='*' element={<PageError />} />
           <Route path="/carrinho" element={<Carrinho />} />
