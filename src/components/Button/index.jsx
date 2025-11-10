@@ -2,10 +2,12 @@ import {
     Botao
 } from "./style";
 
+
 export const Button = (props) => {
   return (
     <>
       <Botao
+        onClick={props.onClick}
         background={props.background}
         color={props.color}
         border={props.border}
