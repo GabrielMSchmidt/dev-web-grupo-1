@@ -2,7 +2,11 @@
 import styled, { keyframes, css } from 'styled-components';
 
 export const Container = styled.div`
+<<<<<<< HEAD
     min-height: 100vh;
+=======
+    max-width: 1200px;
+>>>>>>> c5dffb400466cf9d78fde7a7cab93d6923761549
     margin: 0 auto;
     padding: 20px;
     font-family: "Poppins", sans-serif;
@@ -82,7 +86,11 @@ export const TableCell = styled.td`
     text-align: left;
     font-size: 14px;
     
+<<<<<<< HEAD
     ${props => props.$actions && css`
+=======
+    ${props => props.actions && css`
+>>>>>>> c5dffb400466cf9d78fde7a7cab93d6923761549
         width: 100px; /* Largura para as ações */
         white-space: nowrap;
     `}
@@ -98,7 +106,11 @@ export const ActionButton = styled.button`
     
     &:hover {
         opacity: 1;
+<<<<<<< HEAD
         color: ${props => props.$remove ? 'red' : (props.$edit ? '#007bff' : 'inherit')};
+=======
+        color: ${props => props.remove ? 'red' : (props.edit ? '#007bff' : 'inherit')};
+>>>>>>> c5dffb400466cf9d78fde7a7cab93d6923761549
     }
 `;
 

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { 
   ContainerCard, 
   ImagemCard, 
@@ -31,10 +31,40 @@ const labels = {
 export const Card = (props) => {
   const { addToCart } = useCart();
   const [value, setValue] = useState(2.5);
+  const [imageSrc, setImageSrc] = useState(ImagemTeste);
+
+  useEffect(() => {
+    if (!props.produtoId) return;
+
+    const loadImage = async () => {
+      try {
+        const response = await fetch(`http://localhost:8080/produtos/${props.produtoId}/foto`);
+        
+        if (response.ok) {
+          const blob = await response.blob();
+          const objectUrl = URL.createObjectURL(blob);
+          setImageSrc(objectUrl);
+        }
+      } catch (error) {
+        console.error('Erro ao carregar imagem do produto:', error);
+      }
+    };
+
+    loadImage();
+
+    return () => {
+      if (imageSrc !== ImagemTeste && imageSrc.startsWith('blob:')) {
+        URL.revokeObjectURL(imageSrc);
+      }
+    };
+  }, [props.produtoId]);
 
   return (
     <ContainerCard>
-      <ImagemCard src={props.image || ImagemTeste} alt="Produto" />
+      <ImagemCard 
+        src={imageSrc} 
+        alt={props.title || "Produto"} 
+      />
       <TextoCard>{props.title || "Notebook Gamer RGV Pro 15.6"}</TextoCard>
 
       <ContainerRating style={{ display: "flex", alignItems: "center" }}>

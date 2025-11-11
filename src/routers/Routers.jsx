@@ -1,18 +1,26 @@
 import { Route, Routes } from 'react-router-dom'
 import { Home } from '../pages/Home/index.jsx';
 import { Login } from '../pages/Login/index.jsx';
-import { ListProdutos } from '../pages/Produtos/List/index.jsx';
-import { CreateProduto } from '../pages/Produtos/Create/index.jsx';
+import { Produtos } from '../pages/Produtos/index.jsx';
+import { CreateProduto } from '../pages/CreateProduto/index.jsx';
+import { EditProduto } from '../pages/EditProduto/index.jsx';
 import { Faq } from '../pages/Faq/index.jsx'
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
+=======
+>>>>>>> c5dffb400466cf9d78fde7a7cab93d6923761549
 import { Carrinho } from "../pages/Carrinho";
 import { Checkout } from "../pages/Checkout";
 import { CartProvider } from "../context/CartContext";
 import { GerenciarProdutos } from '../pages/GerenciarProduto/index.jsx';
+<<<<<<< HEAD
 import { Cadastro } from '../pages/Cadastro/index.jsx';
 
 >>>>>>> Stashed changes
+=======
+
+>>>>>>> c5dffb400466cf9d78fde7a7cab93d6923761549
 
 const PageError = () => {
   return (
@@ -25,6 +33,7 @@ const PageError = () => {
 export const Routers = () => {
 
   return (
+<<<<<<< HEAD
 <<<<<<< Updated upstream
     <Routes>
         <Route path='/home' element={<Home />} />
@@ -46,8 +55,23 @@ export const Routers = () => {
           <Route path='/admin' element={<GerenciarProdutos />} />
           <Route path='/faq' element={<Faq />} /> 
 >>>>>>> Stashed changes
+=======
+    <CartProvider>
+      <Routes>
+          <Route path="/carrinho" element={<Carrinho />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path='/home' element={<Home />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/produtos' element={<Produtos />} />
+          <Route path='/produtos/novo' element={<CreateProduto />} />
+          <Route path='/produtos/:id/editar' element={<EditProduto />} />
+          <Route path='/produtos/gerenciar' element={<GerenciarProdutos />} />
+          <Route path='/faq' element={<Faq />} /> 
+>>>>>>> c5dffb400466cf9d78fde7a7cab93d6923761549
 
-        <Route path='*' element={<PageError />} />
-    </Routes>
+          <Route path='*' element={<PageError />} />
+          <Route path="/carrinho" element={<Carrinho />} />
+      </Routes>
+    </CartProvider>
   )
 }
