@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom'
 import { Home } from '../pages/Home/index.jsx';
 import { Login } from '../pages/Login/index.jsx';
-import { Produtos } from '../pages/Produtos/index.jsx';
+import  TodosProdutos  from '../pages/Produtos/index.jsx';
 import { CreateProduto } from '../pages/CreateProduto/index.jsx';
 import { EditProduto } from '../pages/EditProduto/index.jsx';
 import { Faq } from '../pages/Faq/index.jsx'
@@ -28,7 +28,7 @@ export const Routers = () => {
           <Route path="/checkout" element={<Checkout />} />
           <Route path='/home' element={<Home />} />
           <Route path='/login' element={<Login />} />
-          <Route path='/produtos' element={<Produtos />} />
+          <Route path='/produtos' element={<TodosProdutos />} />
           <Route path='/produtos/novo' element={<CreateProduto />} />
           <Route path='/produtos/:id/editar' element={<EditProduto />} />
           <Route path='/admin' element={<GerenciarProdutos />} />

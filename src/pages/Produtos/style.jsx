@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Paper, Box } from "@mui/material";
 
 export const ProdutosContainer = styled.div`
   padding: 2rem;
@@ -8,6 +9,35 @@ export const ProdutosContainer = styled.div`
 export const Titulo = styled.h1`
   color: #006effff;
   margin-bottom: 1.5rem;
+`;
+
+export const FiltroPaper = styled(Paper)`
+  padding: 24px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  border: 2px solid #0d70e0;
+`;
+
+export const BoxFiltros = styled(Box)`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+`;
+
+export const BoxSlider = styled(Box)`
+  margin-top: 8px;
+`;
+
+export const BoxPrecos = styled(Box)`
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+`;
+
+export const BoxProdutos = styled(Box)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const ListaProdutos = styled.div`
