@@ -27,7 +27,7 @@ export const TodosProdutos = () => {
   
   const [categorias, setCategorias] = useState([]);
   const [filtro, setFiltro] = useState(categoriaParam || "");
-  const [faixaPreco, setFaixaPreco] = useState([0, 5000]);
+  const [faixaPreco, setFaixaPreco] = useState([0, 10000]);
   const [ordenar, setOrdenar] = useState("destaques");
 
   useEffect(() => {
@@ -90,7 +90,7 @@ export const TodosProdutos = () => {
                     onChange={handlePrecoChange}
                     valueLabelDisplay="auto"
                     min={0}
-                    max={5000}
+                    max={10000}
                     step={100}
                     sx={{ color: "#0D70E0", mt: 1 }}
                   />
