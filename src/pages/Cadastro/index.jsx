@@ -1,74 +1,83 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import {
+  RegisterPage,
+  RegisterBox,
+  Title,
+  Form,
+  InputGroup,
+  BtnRegister,
+  LoginText,
+  LinkLogin,
+} from "./style.jsx";
 import { FaUser, FaEnvelope, FaLock } from "react-icons/fa";
-import "./Register.css";
+import image from "../../Assets/Icon.png";
 
-export const Cadastro = ( ) =>  {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    password: "",
-  });
+export const Cadastro = () => {
+  const [nome, setNome] = useState("");
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Dados de Cadastro:", formData);
+
+    console.log("Novo usuário:", { nome, email, senha });
+
+    navigate("/login");
   };
 
   return (
-    <div className="register-page">
-      <div className="register-box">
-        <h1>Crie sua conta</h1>
+    <RegisterPage>
+      <RegisterBox>
+        <img src={image} alt="Logo" />
+        <Title>Criar Conta</Title>
 
-        <form onSubmit={handleSubmit}>
-          <div className="input-group">
+        <Form onSubmit={handleSubmit}>
+          <InputGroup>
             <FaUser className="icon" />
             <input
               type="text"
-              name="name"
-              placeholder="Nome completo"
+              placeholder="Nome"
               required
-              value={formData.name}
-              onChange={handleChange}
+              value={nome}
+              onChange={(e) => setNome(e.target.value)}
             />
-          </div>
+          </InputGroup>
 
-          <div className="input-group">
+          <InputGroup>
             <FaEnvelope className="icon" />
             <input
               type="email"
-              name="email"
               placeholder="E-mail"
               required
-              value={formData.email}
-              onChange={handleChange}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
-          </div>
+          </InputGroup>
 
-          <div className="input-group">
+          <InputGroup>
             <FaLock className="icon" />
             <input
               type="password"
-              name="password"
               placeholder="Senha"
               required
-              value={formData.password}
-              onChange={handleChange}
+              value={senha}
+              onChange={(e) => setSenha(e.target.value)}
             />
-          </div>
+          </InputGroup>
 
-          <button type="submit" className="btn-register" onClick={() => navigate("/login")}>
-            Cadastrar
-          </button>
+          <BtnRegister type="submit">Cadastrar</BtnRegister>
 
-          <p className="login-text">
-            Já tem uma conta? <a href="/login">Entrar</a>
-          </p>
-        </form>
-      </div>
-    </div>
+          <LoginText>
+            Já tem uma conta?{" "}
+            <Link to="/login">
+              <LinkLogin>Entrar</LinkLogin>
+            </Link>
+          </LoginText>
+        </Form>
+      </RegisterBox>
+    </RegisterPage>
   );
-}
+};

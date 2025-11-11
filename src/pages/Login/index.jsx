@@ -1,6 +1,5 @@
-import { useState } from "react";
 import { FaUser, FaLock } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   LoginPage,
   LoginBox,
@@ -15,48 +14,32 @@ import {
 import image from "../../Assets/Icon.png";
 
 export const Login = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log("Dados de Login:", { username, password });
-  };
+  const navigate = useNavigate(); 
 
   return (
     <LoginPage>
       <LoginBox>
-        <img src={image} />
+        <img src={image} alt="Logo" />
         <Title>Serra Tech</Title>
 
-        <LoginForm onSubmit={handleSubmit}>
+        <LoginForm>
           <InputGroup>
-            <input
-              type="email"
-              placeholder="E-mail"
-              required
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-            />
+            <input type="email" placeholder="E-mail" />
             <IconRight>
               <FaUser />
             </IconRight>
           </InputGroup>
 
           <InputGroup>
-            <input
-              type="password"
-              placeholder="Senha"
-              required
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
+            <input type="password" placeholder="Senha" />
             <IconRight>
               <FaLock />
             </IconRight>
           </InputGroup>
 
-          <BtnLogin type="submit">Entrar</BtnLogin>
+          <BtnLogin type="button" onClick={() => navigate("/home")}>
+            Entrar
+          </BtnLogin>
 
           <SignupText>
             Não tem uma conta?{" "}
