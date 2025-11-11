@@ -15,6 +15,7 @@ import {
   Fundo,
   CheckoutButton,
 } from "./style";
+import { Footer } from "../../components/Footer/Index";
 
 export const Carrinho = () => {
   const { cartItems, removeFromCart } = useCart();
@@ -38,7 +39,7 @@ export const Carrinho = () => {
           {cartItems.length === 0 ? (
             <EmptyMessage>
               O seu carrinho está vazio.<br />
-              <span>Deseja olhar outros <a href="">Produtos</a> similares?</span>
+              <span>Deseja olhar outros <a href="/produtos">Produtos</a> similares?</span>
               
             </EmptyMessage>
           ) : (
@@ -71,6 +72,7 @@ export const Carrinho = () => {
             </>
           )}
         </ContainerCarrinho>
+        <Footer />
       </Fundo>
     </>
   );
