@@ -2,7 +2,6 @@
 import styled, { keyframes, css } from 'styled-components';
 
 export const Container = styled.div`
-    max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
     font-family: "Poppins", sans-serif;
@@ -82,7 +81,7 @@ export const TableCell = styled.td`
     text-align: left;
     font-size: 14px;
     
-    ${props => props.actions && css`
+    ${props => props.$actions && css`
         width: 100px; /* Largura para as ações */
         white-space: nowrap;
     `}
@@ -98,7 +97,7 @@ export const ActionButton = styled.button`
     
     &:hover {
         opacity: 1;
-        color: ${props => props.remove ? 'red' : (props.edit ? '#007bff' : 'inherit')};
+        color: ${props => props.$remove ? 'red' : (props.$edit ? '#007bff' : 'inherit')};
     }
 `;
 
