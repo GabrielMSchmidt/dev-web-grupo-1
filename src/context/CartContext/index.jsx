@@ -15,7 +15,6 @@ export function CartProvider({ children }) {
 
   const clearCart = () => setCartItems([]);
 
-  // 🧮 Calcula o total sempre que o carrinho muda
   const total = cartItems.reduce((acc, item) => acc + item.preco, 0);
 
   return (
