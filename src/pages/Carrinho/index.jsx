@@ -19,7 +19,7 @@ import {
 export const Carrinho = () => {
   const { cartItems, removeFromCart } = useCart();
   const navigate = useNavigate();
-  const [imagens, setImagens] = useState({}); // guarda imagens por ID do produto
+  const [imagens, setImagens] = useState({}); 
 
   const calcularTotal = () =>
     cartItems.reduce(

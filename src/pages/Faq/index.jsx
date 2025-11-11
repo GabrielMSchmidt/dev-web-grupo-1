@@ -3,9 +3,11 @@ import React, { useState } from 'react';
 
 
 import {
-
+    FaqQuestion,
+    FaqAnswer,
     FaqBox,
     FaqList,
+    Fundo
 } from "./style.jsx";
 
 import { ContactOptions } from './../../components/ContactOptions/index';
@@ -36,7 +38,7 @@ export const Faq =() =>{
 
     return(
 
-    <>
+    <Fundo>
         <Navbar/>
 
         <FaqBox>
@@ -45,9 +47,9 @@ export const Faq =() =>{
             <FaqList>
                 {faqs.map((item) =>(
                 <div key={item.id}>
-                    <faqQuestion>{item.pergunta}</faqQuestion>
-                    <faqAnswer>{item.resposta}</faqAnswer>
-                    <hr/>
+                    <FaqQuestion>{item.pergunta}</FaqQuestion>
+                    <FaqAnswer>{item.resposta}</FaqAnswer>
+                    <br /><br />
                 </div>
              ))}
             </FaqList>
@@ -55,6 +57,6 @@ export const Faq =() =>{
         
         <ContactOptions/>
         <Footer />
-    </> 
+    </Fundo> 
     )
 }
