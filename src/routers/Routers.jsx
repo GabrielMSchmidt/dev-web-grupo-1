@@ -35,6 +35,7 @@ export const Routers = () => {
           <Route path='/faq' element={<Faq />} /> 
           <Route path='*' element={<PageError />} />
           <Route path="/carrinho" element={<Carrinho />} />
+          <Route path="/cadastro" element={<Cadastro />} />
       </Routes>
     </CartProvider>
   )
