@@ -37,7 +37,7 @@ export const InputGroup = styled.div`
   margin-bottom: 16px;
 
   input {
-    max-width: 100%;
+    width: 100%;
     padding: 12px 44px 12px 16px;
     border-radius: 999px;
     border: 1px solid rgba(255, 255, 255, 0.08);
@@ -60,8 +60,8 @@ export const InputGroup = styled.div`
 `;
 
 export const IconRight = styled.div`
-  left: 15px;
   position: absolute;
+  right: 14px;
   top: 50%;
   transform: translateY(-50%);
   color: rgba(255, 255, 255, 0.7);

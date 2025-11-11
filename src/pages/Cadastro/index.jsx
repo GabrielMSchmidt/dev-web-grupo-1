@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FaUser, FaEnvelope, FaLock } from "react-icons/fa";
 import "./Register.css";
 
-export const Cadastro = () => {
+export const Cadastro = ( ) =>  {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
