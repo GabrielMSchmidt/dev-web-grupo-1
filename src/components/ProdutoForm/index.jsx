@@ -54,7 +54,6 @@ export const ProdutoForm = ({
         preco: parseFloat(formData.preco),
         idCategoria: parseInt(formData.idCategoria),
         quantidadeEstoque: parseInt(formData.quantidadeEstoque),
-        url: formData.url,
       };
       onSubmit(produtoData);
     } else {
@@ -66,7 +65,6 @@ export const ProdutoForm = ({
         preco: parseFloat(formData.preco),
         idCategoria: parseInt(formData.idCategoria),
         quantidadeEstoque: parseInt(formData.quantidadeEstoque),
-        url: formData.url,
       })], { type: 'application/json' });
       
       formDataToSend.append('produto', produtoBlob);

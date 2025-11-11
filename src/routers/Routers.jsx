@@ -31,7 +31,7 @@ export const Routers = () => {
           <Route path='/produtos' element={<Produtos />} />
           <Route path='/produtos/novo' element={<CreateProduto />} />
           <Route path='/produtos/:id/editar' element={<EditProduto />} />
-          <Route path='/produtos/gerenciar' element={<GerenciarProdutos />} />
+          <Route path='/admin' element={<GerenciarProdutos />} />
           <Route path='/faq' element={<Faq />} /> 
 
           <Route path='*' element={<PageError />} />
