@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { api } from "../../utils/Api";
 import {
   Container,
   TopBar,
@@ -17,10 +18,25 @@ import {
 
 import { FaUser, FaSearch, FaShoppingCart, FaBars } from "react-icons/fa";
 import { useCart } from "../../context/CartContext";
+
 export function Navbar({ propsPlaceHolder }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [categorias, setCategorias] = useState([]);
   const navigate = useNavigate();
   const { cartItems } = useCart();
+
+  useEffect(() => {
+    const fetchCategorias = async () => {
+      try {
+        const data = await api.get('/categorias');
+        setCategorias(data);
+      } catch (err) {
+        console.error('Erro ao carregar categorias:', err);
+      }
+    };
+
+    fetchCategorias();
+  }, []);
 
   return (
     <>
@@ -58,13 +74,20 @@ export function Navbar({ propsPlaceHolder }) {
       </Container>
 
       <ContainerCategorias>
-        <Categorias href="/produtos">Todos os produtos</Categorias>
-        <Categorias href="/categoria/cat2">Notebooks</Categorias>
-        <Categorias href="/categoria/cat3">Computadores</Categorias>
-        <Categorias href="/categoria/cat4">Monitores</Categorias>
-        <Categorias href="/categoria/cat5">Mouses</Categorias>
-        <Categorias href="/categoria/cat6">Teclados</Categorias>
-        <Categorias href="/faq">FAQ</Categorias>
+        <Categorias onClick={() => navigate('/produtos')}>
+          Todos os produtos
+        </Categorias>
+        {categorias.map((categoria) => (
+          <Categorias 
+            key={categoria.id} 
+            onClick={() => navigate(`/produtos?categoria=${categoria.id}`)}
+          >
+            {categoria.nome}
+          </Categorias>
+        ))}
+        <Categorias onClick={() => navigate('/faq')}>
+          FAQ
+        </Categorias>
       </ContainerCategorias>
     </>
   );

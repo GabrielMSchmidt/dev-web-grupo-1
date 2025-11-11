@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import {
   Box,
   Typography,
@@ -7,6 +8,7 @@ import {
   MenuItem,
   Slider,
 } from "@mui/material";
+import { api } from "../../utils/Api";
 import { Navbar } from "../../components/Navbar";
 import { CardList } from "../../components/CardList";
 import {
@@ -18,19 +20,31 @@ import {
   BoxPrecos,
   BoxProdutos,
 } from "./style";
-import Button from "../../components/Button";
 
 export const TodosProdutos = () => {
-  const [filtro, setFiltro] = useState("");
+  const [searchParams] = useSearchParams();
+  const categoriaParam = searchParams.get("categoria");
+  
+  const [categorias, setCategorias] = useState([]);
+  const [filtro, setFiltro] = useState(categoriaParam || "");
   const [faixaPreco, setFaixaPreco] = useState([0, 5000]);
   const [ordenar, setOrdenar] = useState("destaques");
 
+  useEffect(() => {
+    const fetchCategorias = async () => {
+      try {
+        const data = await api.get('/categorias');
+        setCategorias(data);
+      } catch (err) {
+        console.error('Erro ao carregar categorias:', err);
+      }
+    };
+
+    fetchCategorias();
+  }, []);
+
   const handlePrecoChange = (event, novoValor) => {
     setFaixaPreco(novoValor);
-  };
-
-  const aplicarFiltro = () => {
-    console.log("Filtro aplicado:", filtro, faixaPreco, ordenar);
   };
 
   return (
@@ -62,9 +76,11 @@ export const TodosProdutos = () => {
                   size="small"
                 >
                   <MenuItem value="">Todas</MenuItem>
-                  <MenuItem value="eletronicos">Eletrônicos</MenuItem>
-                  <MenuItem value="informatica">Informática</MenuItem>
-                  <MenuItem value="eletrodomesticos">Eletrodomésticos</MenuItem>
+                  {categorias.map((categoria) => (
+                    <MenuItem key={categoria.id} value={categoria.id}>
+                      {categoria.nome}
+                    </MenuItem>
+                  ))}
                 </TextField>
 
                 <BoxSlider>
@@ -96,8 +112,6 @@ export const TodosProdutos = () => {
                   <MenuItem value="preco_asc">Menor preço</MenuItem>
                   <MenuItem value="preco_desc">Maior preço</MenuItem>
                 </TextField>
-
-                <Button onClick={aplicarFiltro}>Aplicar Filtro</Button>
               </BoxFiltros>
             </FiltroPaper>
           </Grid>
