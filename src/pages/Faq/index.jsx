@@ -3,6 +3,17 @@ import './style.css'
 import React, { useState } from 'react';
 
 
+import {
+    ContainerFaq,
+    FaqBox,
+    FaqList,
+    Container
+} from "./style.jsx";
+
+import { ContactOptions } from './../../components/ContactOptions/index';
+import { Footer } from "../../components/Footer/Index.jsx";
+
+
 const mockFaqs = [
     {
         id: 1,
@@ -28,21 +39,24 @@ export const Faq =() =>{
     return(
 
     <>
-        <Navbar/>
-
-        <div className="faqBox">
-        <h1> Dúvidas Frequentes</h1>
-        <span>Encontre respostas para as perguntas mais comuns sobre nosso produto e serviços</span>
-            <div className="faqList">
-                {faqs.map((item) =>(
-                <div key={item.id} className="faqItem">
-                    <h3 className="faqQuestion">{item.pergunta}</h3>
-                    <p className="faqAnswer">{item.resposta}</p>
-                    <hr/>
-                </div>
-             ))}
-            </div>
-        </div>
+        <Navbar />
+        <Container>
+            <FaqBox>
+            <h1> Dúvidas Frequentes</h1>
+            <span>Encontre respostas para as perguntas mais comuns sobre nosso produto e serviços</span>
+                <FaqList>
+                    {faqs.map((item) =>(
+                    <ContainerFaq key={item.id}>
+                        <faqQuestion>{item.pergunta}</faqQuestion>
+                        <faqAnswer>{item.resposta}</faqAnswer>
+                    </ContainerFaq>
+                 ))}
+                </FaqList>
+            </FaqBox>
+            
+            <ContactOptions/>
+        </Container>
+        <Footer />
     </> 
     )
 }
