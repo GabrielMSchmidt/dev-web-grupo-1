@@ -17,6 +17,9 @@ export const FaqBox = styled.div `
 `;
 
 export const FaqList  = styled.div `
+    justify-content: center;
+    align-items: center;
+    align-self: center;
     background-color: #FAFAFA;
     border: 1px solid #c4c4c4;
     border-radius: 15px;
