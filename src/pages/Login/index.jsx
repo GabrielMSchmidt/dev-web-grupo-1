@@ -1,25 +1,34 @@
 import { useState } from "react";
 import { FaUser, FaLock } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import "./Login.css";
+import {
+  LoginPage,
+  LoginBox,
+  Title,
+  LoginForm,
+  InputGroup,
+  IconRight,
+  BtnLogin,
+  SignupText,
+  LinkRegister,
+} from "./style.jsx";
 
-export default function Login() {
+export const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("Dados de Login:", { username, password });
-    // aqui você pode adicionar chamada à API
   };
 
   return (
-    <div className="login-page">
-      <div className="login-box">
-        <h1 className="title">Serra Tech</h1>
+    <LoginPage>
+      <LoginBox>
+        <Title>Serra Tech</Title>
 
-        <form className="login-form" onSubmit={handleSubmit}>
-          <div className="input-group">
+        <LoginForm onSubmit={handleSubmit}>
+          <InputGroup>
             <input
               type="email"
               placeholder="E-mail"
@@ -27,10 +36,12 @@ export default function Login() {
               value={username}
               onChange={(e) => setUsername(e.target.value)}
             />
-            <FaUser className="icon-right" />
-          </div>
+            <IconRight>
+              <FaUser />
+            </IconRight>
+          </InputGroup>
 
-          <div className="input-group">
+          <InputGroup>
             <input
               type="password"
               placeholder="Senha"
@@ -38,21 +49,21 @@ export default function Login() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <FaLock className="icon-right" />
-          </div>
+            <IconRight>
+              <FaLock />
+            </IconRight>
+          </InputGroup>
 
-          <button type="submit" className="btn-login">
-            Entrar
-          </button>
+          <BtnLogin type="submit">Entrar</BtnLogin>
 
-          <p className="signup-text">
+          <SignupText>
             Não tem uma conta?{" "}
-            <Link to="/register" className="link-register">
-              Cadastre-se
+            <Link to="/cadastro">
+              <LinkRegister>Cadastre-se</LinkRegister>
             </Link>
-          </p>
-        </form>
-      </div>
-    </div>
+          </SignupText>
+        </LoginForm>
+      </LoginBox>
+    </LoginPage>
   );
-}
+};

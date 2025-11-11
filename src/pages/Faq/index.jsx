@@ -3,9 +3,16 @@ import React, { useState } from 'react';
 
 
 import {
+<<<<<<< HEAD
+    ContainerFaq,
+    FaqBox,
+    FaqList,
+    Container
+=======
 
     FaqBox,
     FaqList,
+>>>>>>> c5dffb400466cf9d78fde7a7cab93d6923761549
 } from "./style.jsx";
 
 import { ContactOptions } from './../../components/ContactOptions/index';
@@ -37,6 +44,25 @@ export const Faq =() =>{
     return(
 
     <>
+<<<<<<< HEAD
+        <Navbar />
+        <Container>
+            <FaqBox>
+            <h1> Dúvidas Frequentes</h1>
+            <span>Encontre respostas para as perguntas mais comuns sobre nosso produto e serviços</span>
+                <FaqList>
+                    {faqs.map((item) =>(
+                    <ContainerFaq key={item.id}>
+                        <faqQuestion>{item.pergunta}</faqQuestion>
+                        <faqAnswer>{item.resposta}</faqAnswer>
+                    </ContainerFaq>
+                 ))}
+                </FaqList>
+            </FaqBox>
+            
+            <ContactOptions/>
+        </Container>
+=======
         <Navbar/>
 
         <FaqBox>
@@ -54,6 +80,7 @@ export const Faq =() =>{
         </FaqBox>
         
         <ContactOptions/>
+>>>>>>> c5dffb400466cf9d78fde7a7cab93d6923761549
         <Footer />
     </> 
     )

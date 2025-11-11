@@ -49,7 +49,7 @@ export function Navbar({ propsPlaceHolder }) {
         </SearchContainer>
 
         <IconsWrapper>
-          <FaUser className="icon" />
+          <FaUser className="icon" onClick={() => navigate("/login")} />
           <CartIcon onClick={() => navigate("/carrinho")}>
             <FaShoppingCart className="icon" />
             <span className="cart-count">{cartItems.length}</span>

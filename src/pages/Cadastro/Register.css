@@ -1,0 +1,77 @@
+.register-page {
+  background: linear-gradient(to right, #3f87a6, #ebf8e1, #f69d3c);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+}
+
+.register-box {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 40px;
+  border-radius: 15px;
+  width: 350px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+h1 {
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin-bottom: 15px;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.input-group .icon {
+  margin-right: 10px;
+  color: #fff;
+}
+
+.input-group input {
+  background: none;
+  border: none;
+  outline: none;
+  color: #fff;
+  width: 100%;
+}
+
+.btn-register {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn-register:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.signup-text {
+  margin-top: 14px;
+  color: #fff;
+}
+
+.signup-text a {
+  color: #7dd3fc;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.signup-text a:hover {
+  text-decoration: underline;
+}

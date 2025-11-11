@@ -17,10 +17,20 @@ import { Container,
     ActionButton, 
     ImagePreview, 
     Notification } from './Style';
+import { Container, Header, Title, ProductListSection, NewProductButton, Table, TableHead, TableRow, TableCell, ActionButton, ImagePreview, Notification } from './Style'; // Estilos importados
 
 import { api } from '../../utils/Api'; 
 import { Navbar } from '../../components/Navbar';
 import { Footer } from '../../components/Footer/Index';
+
+const initialProductsMock = [
+    { id: '1', imagem: '/assets/notebook.jpg', nome: 'Notebook Gamer RGB Pro 15.6"', preco: 4599.99, estoque: 15, urlImagem: '/assets/notebook.jpg' },
+    { id: '2', imagem: '/assets/smartphone.jpg', nome: 'Smartphone Pro Max 256GB', preco: 3299.99, estoque: 28, urlImagem: '/assets/smartphone.jpg' },
+    { id: '3', imagem: '/assets/teclado.jpg', nome: 'Teclado Mecânico RGB Pro', preco: 599.99, estoque: 42, urlImagem: '/assets/teclado.jpg' },
+];
+
+
+
 
 const useProductManagement = () => {
     const [produtos, setProdutos] = useState([]);
@@ -39,6 +49,7 @@ const useProductManagement = () => {
 
     const handleDelete = async (produtoId) => {
         try {
+
             await api.delete(`/produtos/${produtoId}`);
             setProdutos(prev => prev.filter(p => p.id !== produtoId));
             return { success: true, message: 'Produto removido com sucesso!' };
@@ -48,7 +59,7 @@ const useProductManagement = () => {
         }
     };
 
-    return { produtos, error, fetchProdutos, handleDelete };
+    return { produtos, loading, error, fetchProdutos, handleDelete, setProdutos };
 }
 
 export const GerenciarProdutos = () => {
@@ -65,12 +76,27 @@ export const GerenciarProdutos = () => {
         setSelectedProduto(produto);
         setModalOpen(true);
     };
-
     const handleNewProductClick = () => {
         setSelectedProduto(null);
         setModalOpen(true);
     };
 
+   
+    const handleModalSubmit = (updatedProduto) => {
+       
+        console.log('Dados do modal submetidos:', updatedProduto);
+        
+      
+        if (updatedProduto.id) {
+           
+            setProdutos(prev => prev.map(p => p.id === updatedProduto.id ? updatedProduto : p));
+            setNotification({ message: 'Produto atualizado com sucesso!', type: 'success' });
+        } else {
+          
+            const newId = Date.now().toString();
+            setProdutos(prev => [...prev, { ...updatedProduto, id: newId }]);
+            setNotification({ message: 'Produto criado com sucesso!', type: 'success' });
+        }
     const handleModalSubmit = async () => {
         await fetchProdutos();
         setModalOpen(false);

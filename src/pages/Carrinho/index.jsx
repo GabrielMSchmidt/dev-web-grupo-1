@@ -15,6 +15,7 @@ import {
   Fundo,
   CheckoutButton,
 } from "./style";
+import { Footer } from "../../components/Footer/Index";
 
 export const Carrinho = () => {
   const { cartItems, removeFromCart } = useCart();
@@ -71,6 +72,7 @@ export const Carrinho = () => {
             </>
           )}
         </ContainerCarrinho>
+        <Footer />
       </Fundo>
     </>
   );
