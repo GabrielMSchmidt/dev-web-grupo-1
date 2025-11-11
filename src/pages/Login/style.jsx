@@ -37,8 +37,8 @@ export const InputGroup = styled.div`
   margin-bottom: 16px;
 
   input {
-    width: 100%;
-    padding: 12px 44px 12px 16px;
+    width: 80%;
+    padding: 12px 60px 12px 16px;
     border-radius: 999px;
     border: 1px solid rgba(255, 255, 255, 0.08);
     background: rgba(255, 255, 255, 0.03);

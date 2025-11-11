@@ -12,6 +12,7 @@ import {
   SignupText,
   LinkRegister,
 } from "./style.jsx";
+import image from "../../Assets/Icon.png";
 
 export const Login = () => {
   const [username, setUsername] = useState("");
@@ -25,6 +26,7 @@ export const Login = () => {
   return (
     <LoginPage>
       <LoginBox>
+        <img src={image} />
         <Title>Serra Tech</Title>
 
         <LoginForm onSubmit={handleSubmit}>
