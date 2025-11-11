@@ -9,7 +9,8 @@ import { ModalOverlay,
     ModalFooter, 
     InputGroup, 
     Label, 
-    Input, 
+    Input,
+    Select, 
     TextArea, 
     CloseButton, 
     SubmitButton, 
@@ -28,7 +29,21 @@ export const ProdutoModal = ({ isOpen, onClose, produto, onSubmit }) => {
     const [foto, setFoto] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
+    const [categorias, setCategorias] = useState([]);
 
+    useEffect(() => {
+        const fetchCategorias = async () => {
+            try {
+                const data = await api.get('/categorias');
+                console.log('Categorias carregadas:', data);
+                setCategorias(data);
+            } catch (error) {
+                console.error('Erro ao carregar categorias:', error);
+            }
+        };
+        
+        fetchCategorias();
+    }, []);
     
     useEffect(() => {
         if (produto) {
@@ -164,16 +179,21 @@ export const ProdutoModal = ({ isOpen, onClose, produto, onSubmit }) => {
                         </InputGroup>
 
                         <InputGroup>
-                            <Label htmlFor="idCategoria">ID da Categoria:</Label>
-                            <Input 
+                            <Label htmlFor="idCategoria">Categoria:</Label>
+                            <Select 
                                 id="idCategoria" 
                                 name="idCategoria" 
-                                type="number"
-                                min="1"
                                 value={formData.idCategoria} 
                                 onChange={handleChange} 
                                 required 
-                            />
+                            >
+                                <option value="">Selecione uma categoria</option>
+                                {categorias && categorias.map((categoria) => (
+                                    <option key={categoria.id} value={categoria.id}>
+                                        {categoria.nome}
+                                    </option>
+                                ))}
+                            </Select>
                         </InputGroup>
 
                         <InputGroup>
