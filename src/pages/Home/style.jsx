@@ -1,7 +1,12 @@
 import styled from "styled-components";
 
 export const ContainerHome = styled.div`
-    height: 220vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    width: 100%;
+    min-height: 100vh;
 `;
 
 export const ContainerTitulos = styled.div`

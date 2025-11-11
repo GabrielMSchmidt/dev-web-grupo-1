@@ -8,6 +8,7 @@ export const Container = styled.div`
   background-color: #ffffff;
   color: black;
   gap: 10px;
+  margin-top: 0.5%;
 
   @media (min-width: 768px) {
     display: flex;

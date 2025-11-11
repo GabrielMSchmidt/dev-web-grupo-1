@@ -39,7 +39,7 @@ export const Carrinho = () => {
           {cartItems.length === 0 ? (
             <EmptyMessage>
               O seu carrinho está vazio.<br />
-              <span>Deseja olhar outros <a href="">Produtos</a> similares?</span>
+              <span>Deseja olhar outros <a href="/produtos">Produtos</a> similares?</span>
               
             </EmptyMessage>
           ) : (

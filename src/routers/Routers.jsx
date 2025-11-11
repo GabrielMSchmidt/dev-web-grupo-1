@@ -65,7 +65,7 @@ export const Routers = () => {
           <Route path='/produtos' element={<Produtos />} />
           <Route path='/produtos/novo' element={<CreateProduto />} />
           <Route path='/produtos/:id/editar' element={<EditProduto />} />
-          <Route path='/produtos/gerenciar' element={<GerenciarProdutos />} />
+          <Route path='/admin' element={<GerenciarProdutos />} />
           <Route path='/faq' element={<Faq />} /> 
 >>>>>>> c5dffb400466cf9d78fde7a7cab93d6923761549
 

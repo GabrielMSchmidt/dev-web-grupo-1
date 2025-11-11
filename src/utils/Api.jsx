@@ -35,7 +35,8 @@ export const api = {
     return response.data;
   },
   put: async (endpoint, body) => {
-    const response = await apiClient.put(endpoint, body);
+    const config = body instanceof FormData ? { headers: { "Content-Type": "multipart/form-data" } } : {};
+    const response = await apiClient.put(endpoint, body, config);
     return response.data;
   },
   delete: async (endpoint) => {
