@@ -73,7 +73,6 @@ export const ProdutoModal = ({ isOpen, onClose, produto, onSubmit }) => {
 
         try {
             if (isEdit) {
-                // 1. Atualizar dados do produto
                 const produtoData = {
                     nome: formData.nome,
                     descricao: formData.descricao,
@@ -84,7 +83,6 @@ export const ProdutoModal = ({ isOpen, onClose, produto, onSubmit }) => {
                 
                 await api.put(`/produtos/${produto.id}`, produtoData);
 
-                // 2. Se usuário selecionou nova foto, atualizar foto separadamente
                 if (foto) {
                     const fotoFormData = new FormData();
                     fotoFormData.append('foto', foto);
@@ -93,7 +91,7 @@ export const ProdutoModal = ({ isOpen, onClose, produto, onSubmit }) => {
 
                 onSubmit();
             } else {
-                // Criar produto
+                
                 const formDataToSend = new FormData();
                 
                 const produtoBlob = new Blob([JSON.stringify({

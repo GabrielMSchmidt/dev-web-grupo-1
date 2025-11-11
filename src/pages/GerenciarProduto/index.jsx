@@ -5,7 +5,18 @@ import { FaPencilAlt } from "react-icons/fa";
 import { FaTrashAlt } from "react-icons/fa";
 
 import { ProdutoModal } from '../../components/ProdutoModal/index';
-import { Container, Header, Title, ProductListSection, NewProductButton, Table, TableHead, TableRow, TableCell, ActionButton, ImagePreview, Notification } from './Style';
+import { Container, 
+    Header, 
+    Title, 
+    ProductListSection, 
+    NewProductButton, 
+    Table, 
+    TableHead, 
+    TableRow, 
+    TableCell, 
+    ActionButton, 
+    ImagePreview, 
+    Notification } from './Style';
 
 import { api } from '../../utils/Api'; 
 import { Navbar } from '../../components/Navbar';
