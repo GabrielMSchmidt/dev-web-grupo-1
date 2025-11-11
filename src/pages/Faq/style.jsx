@@ -38,7 +38,7 @@ export const FaqQuestion    = styled.h1 `
     cursor: pointer;  
 `;
 
-export const FaqAnswer = styled.li `
+export const FaqAnswer = styled.span `
     font-size: 0%.9;
     color: #333; 
 `;
