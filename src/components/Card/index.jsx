@@ -88,18 +88,31 @@ export const Card = (props) => {
         </Box>
       </ContainerRating>
 
-      <PrecoDesconto>{props.precoDes || "R$ 5519.99"}</PrecoDesconto>
+      <PrecoDesconto>
+        {`R$ ${(parseFloat(props.precoOri?.replace("R$", "").replace(",", ".") || 0) * 1.1).toFixed(2)}`}
+      </PrecoDesconto>
+
       <Preco>{props.precoOri || "R$ 4899.99"}</Preco>
+
       <ContainerButton>
         <Button
-          onClick={() => addToCart({
-            id: props.produtoId,
-            nome: props.title,
-            preco: parseFloat(props.precoOri?.replace("R$", "").replace(",", ".") || 0),
-          })}
-          title="Adicionar" 
-          background="#0D70E0" 
-          color="white" 
+          onClick={() =>
+            addToCart({
+              id: props.produtoId,
+              nome: props.title,
+              preco: parseFloat(
+                props.precoOri?.replace("R$", "").replace(",", ".") || 0
+              ),
+              precoDesconto: parseFloat(
+                (parseFloat(
+                  props.precoOri?.replace("R$", "").replace(",", ".") || 0
+                ) * 1.1).toFixed(2)
+              ),
+            })
+          }
+          title="Adicionar"
+          background="#0D70E0"
+          color="white"
           backgroundHover="white"
           colorHover="#0D70E0"
           padding="3% 30%"

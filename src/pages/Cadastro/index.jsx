@@ -60,7 +60,7 @@ export const Cadastro = ( ) =>  {
             />
           </div>
 
-          <button type="submit" className="btn-register">
+          <button type="submit" className="btn-register" onClick={() => navigate("/login")}>
             Cadastrar
           </button>
 

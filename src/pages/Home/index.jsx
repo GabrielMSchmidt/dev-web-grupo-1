@@ -28,47 +28,50 @@ const banners = [
 
 export const Home = () => {
     return (
-        <ContainerHome>
-            <Navbar />
-            <ConatainerToProduct>
-                <ContainerToLeft>
-                    <ContainerProd 
-                        title="Os Melhores " 
-                        title2="Para Você" 
-                        destaque="Produtos" 
-                        subtitle="Encontre notebooks, smartphones, periféricos e componentes com os melhores preços e condições."
-                    />
-                </ContainerToLeft>
-                <ContainerToRight>
-                    <Carrossel banners={banners} interval={10000}/>
-                </ContainerToRight>
-            </ConatainerToProduct>
+        <>
+            <ContainerHome>
+                <Navbar />
+                <ConatainerToProduct>
+                    <ContainerToLeft>
+                        <ContainerProd 
+                            title="Os Melhores " 
+                            title2="Para Você" 
+                            destaque="Produtos" 
+                            subtitle="Encontre notebooks, smartphones, periféricos e componentes com os melhores preços e condições."
+                        />
+                    </ContainerToLeft>
+                    <ContainerToRight>
+                        <Carrossel banners={banners} interval={10000}/>
+                    </ContainerToRight>
+                </ConatainerToProduct>
 
-            <ContainerTitulos>
-                <ContainerTiLeft>
-                    <Titulo> Produtos em Destaque</Titulo>
-                    <SubTitulo>Os mais vendidos da semana</SubTitulo>
-                </ContainerTiLeft>
-                <ContainerTiRight>
-                    <Button 
-                        title="Ver Todos"
-                        border="1px solid gray" 
-                        padding="0 20%"
-                        fontSize="20px"
-                        backgroundHover="black"
-                        colorHover="white"
-                        borderHover="none"
-                        paddingTablet="0 10%"
-                        fontSizeTablet="15px"
-                        heightTablet="50px"
-                        height="50px"
-                    />
-                </ContainerTiRight>
-            </ContainerTitulos>
-            <ContainerCards>
-                    <CardList/>
-            </ContainerCards>
+                <ContainerTitulos>
+                    <ContainerTiLeft>
+                        <Titulo> Produtos em Destaque</Titulo>
+                        <SubTitulo>Os mais vendidos da semana</SubTitulo>
+                    </ContainerTiLeft>
+                    <ContainerTiRight>
+                        <Button 
+                            title="Ver Todos"
+                            border="1px solid gray" 
+                            padding="0 20%"
+                            fontSize="20px"
+                            backgroundHover="black"
+                            colorHover="white"
+                            borderHover="none"
+                            paddingTablet="0 10%"
+                            fontSizeTablet="15px"
+                            heightTablet="50px"
+                            height="50px"
+                        />
+                    </ContainerTiRight>
+                </ContainerTitulos>
+                <ContainerCards>
+                        <CardList/>
+                </ContainerCards>
+                
+            </ContainerHome>
             <Footer />
-        </ContainerHome>
+            </>
     )
 }
