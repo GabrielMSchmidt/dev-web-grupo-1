@@ -88,6 +88,9 @@ export function Navbar({ propsPlaceHolder }) {
         <Categorias onClick={() => navigate('/faq')}>
           FAQ
         </Categorias>
+        <Categorias onClick={() => navigate('/admin')}>
+          Admin
+        </Categorias>
       </ContainerCategorias>
     </>
   );
