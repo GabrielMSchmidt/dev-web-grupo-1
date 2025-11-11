@@ -4,9 +4,11 @@ import { Paper, Box } from "@mui/material";
 export const ProdutosContainer = styled.div`
   padding: 2rem;
   text-align: center;
+  font-family: 'Poppins', sans-serif;
 `;
 
 export const Titulo = styled.h1`
+  font-family: 'Poppins', sans-serif;
   color: #006effff;
   margin-bottom: 1.5rem;
 `;

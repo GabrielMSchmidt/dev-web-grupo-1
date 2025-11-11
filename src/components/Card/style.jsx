@@ -38,18 +38,19 @@ export const ContainerCard = styled.div`
 `;
 
 export const ImagemCard = styled.img`
-  width: 95%;
+  width: 300px;
   margin: 2% 2%;
+  align-self: center;
   object-fit: contain;
 
   @media (min-width: 768px) {
-    width: 70%;
-    margin-left: 18%;
+    width: 450px;
+    height: 300px;
   }
 
   @media (min-width: 1024px) {
-    width: 70%;
-    margin-left: 15%;
+    width: 260px;
+    height: 200px;
   }
 `;
 

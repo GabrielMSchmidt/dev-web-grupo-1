@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom'
 import { Home } from '../pages/Home/index.jsx';
 import { Login } from '../pages/Login/index.jsx';
-import  TodosProdutos  from '../pages/Produtos/index.jsx';
+import { TodosProdutos }  from '../pages/Produtos/index.jsx';
 import { CreateProduto } from '../pages/CreateProduto/index.jsx';
 import { EditProduto } from '../pages/EditProduto/index.jsx';
 import { Faq } from '../pages/Faq/index.jsx'

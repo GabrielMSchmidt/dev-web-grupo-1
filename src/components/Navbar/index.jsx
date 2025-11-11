@@ -58,7 +58,7 @@ export function Navbar({ propsPlaceHolder }) {
       </Container>
 
       <ContainerCategorias>
-        <Categorias href="/Home">Todos os produtos</Categorias>
+        <Categorias href="/produtos">Todos os produtos</Categorias>
         <Categorias href="/categoria/cat2">Notebooks</Categorias>
         <Categorias href="/categoria/cat3">Computadores</Categorias>
         <Categorias href="/categoria/cat4">Monitores</Categorias>
